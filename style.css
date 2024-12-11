@@ -245,23 +245,6 @@ footer {
     margin-right: 8px;
 }
 
-.cv-button {
-    display: inline-flex;
-    align-items: center;
-    padding: 12px 24px;
-    background-color: #e74c3c;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.cv-button:hover {
-    background-color: #c0392b;
-    transform: translateY(-3px);
-}
 
 .cv-button i {
     margin-right: 10px;
