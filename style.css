@@ -279,6 +279,12 @@ footer {
     font-size: 18px;
 }
 
+.nav-links a.active {
+    color: #3498db; /* Par exemple, bleu clair */
+    font-weight: bold;
+    border-bottom: 2px solid #3498db;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {

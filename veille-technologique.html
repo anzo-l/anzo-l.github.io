@@ -1,61 +1,104 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille Technologique - Mon Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Veille Technologique</title>
+    <link rel="stylesheet" href="style.css"> <!-- Utilisez votre fichier CSS existant -->
 </head>
-
 <body>
-
-    <!-- Navigation -->
-    <nav class="nav-container">
-        <div class="logo">
-            <a href="#">Mon Portfolio</a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#veille-technologique">Veille Technologique</a></li>
-            <!-- Ajoutez d'autres liens de navigation ici -->
-        </ul>
-    </nav>
-
-    <!-- Section Veille Technologique -->
-    <section id="veille-technologique" class="section">
-        <div class="section-title">
-            <h2>Veille Technologique 📔</h2>
-        </div>
-
-        <div class="veille-content">
-            <h3>Qu'est-ce que la veille technologique ?</h3>
-            <p>
-                La veille technologique, élément de la veille stratégique, consiste à surveiller les évolutions techniques, les innovations dans un secteur d’activité donné.
-                La veille technologique comprend notamment la surveillance, la collecte, le partage et la diffusion d’informations permettant d’anticiper ou de s’informer sur des changements en matière de recherche, développement, brevet, lancement de nouveaux produits, matériaux, processus, concepts, innovation de fabrication, etc.
-                Cela a pour but d’évaluer l’impact sur l’environnement et l’organisation.
-            </p>
-
-            <h3>Les principaux outils de ma veille</h3>
-            <p>
-                J'ai effectué ma veille technologique grâce aux newsletters telles que <strong>Feedly</strong> (un agrégateur de flux RSS) et <strong>Openai.com</strong> (la newsletter des professionnels en Data Science).
-                En plus des informations fournies chaque semaine/mois, j'ai quelques sites en favoris permettant de me tenir au courant des dernières actualités, tels que <strong>Hitek.fr</strong>, un site regroupant l’actualité High Tech et Geek, et <strong>Hardware.fr</strong>, un site regroupant l'actualité sur les processeurs, les cartes graphiques, les cartes mères, etc.
-            </p>
-
-            <h3>Sujet de ma veille</h3>
-            <p>
-                Pour la veille technologique, j'ai décidé de traiter le sujet de l'IA. Ma thématique est : <strong>Quel est le futur de l'intelligence artificielle dans notre société ?</strong>
-            </p>
-            <p>
-                Afin de répondre à cette thématique, ma veille repose sur 3 différents thèmes :
-            </p>
-            <ul>
-                <li>Les avancées récentes en intelligence artificielle et leurs applications dans différents secteurs.</li>
-                <li>L'impact de l'IA sur le marché de l'emploi et les compétences requises pour les métiers de demain.</li>
-                <li>Les implications éthiques et sociales de l'utilisation de l'IA, notamment en matière de confidentialité et de sécurité des données.</li>
+    <!-- Barre de navigation -->
+    <div class="nav-container">
+        <nav>
+            <a href="portfolio.html" class="logo">AL</a>
+            <ul class="nav-links">
+                <li><a href="portfolio.html#accueil">Accueil</a></li>
+                <li><a href="portfolio.html#profil">Profil</a></li>
+                <li><a href="portfolio.html#parcours">Parcours</a></li>
+                <li><a href="portfolio.html#competences">Compétences</a></li>
+                <li><a href="portfolio.html#projets">Projets</a></li>
+                <li><a href="portfolio.html#bts">BTS SIO</a></li>
+                <li><a href="veille-technologique.html">Veille Technologique</a></li>
+                <li><a href="portfolio.html#contact">Contact</a></li>
             </ul>
+        </nav>
+    </div>
+
+    <!-- Contenu de la page Veille Technologique -->
+    <section class="section">
+        <div class="container">
+            <h1>Veille Technologique 📔</h1>
+            <h2>Qu'est-ce que la veille technologique ?</h2>
+            <p>
+                La veille technologique consiste à surveiller de manière proactive les évolutions, les innovations et les tendances dans le domaine technologique. Cela implique la collecte, l'analyse et la diffusion d'informations stratégiques pour rester informé des dernières avancées, favoriser l'adaptation et rester compétitif sur le plan technologique. Elle vise à anticiper les changements et à exploiter les opportunités offertes par les nouvelles technologies.
+            </p>
+
+            <h2>Les principaux outils de ma veille</h2>
+            <p>
+                J'ai effectué ma veille technologique grâce aux newsletters telles que Feedly, un agrégateur de flux RSS, ainsi qu'à OpenAI.com, la newsletter des professionnels en Data Science. En plus des informations fournies chaque semaine/mois, j'ai quelques sites favoris permettant de me tenir au courant des dernières actualités telles que Hitek.fr, un site regroupant l’actualité High Tech et Geek, ou encore Hardware.fr, un site regroupant l'actualité sur les processeurs, les cartes graphiques, les cartes mères, etc.
+            </p>
+
+            <h2>Sujet de ma veille</h2>
+            <p>
+                Pour ma veille technologique, j'ai décidé de traiter le sujet de l'IA. Ma thématique est : *Quel est le futur de l'intelligence artificielle dans notre société ?*
+            </p>
+
+            <!-- Section avec des articles récents sur l'IA -->
+            <section class="ai-news">
+                <h2>Actualités récentes sur l'Intelligence Artificielle</h2>
+                
+                <!-- Article 1: OpenAI et partenariat avec Apple -->
+                <div class="ai-article">
+                    <h3>OpenAI et Apple annoncent un partenariat</h3>
+                    <iframe src="https://openai.com/research/partnership-with-apple" width="100%" height="500px" frameborder="0" allowfullscreen>
+                        Ce navigateur ne prend pas en charge les iframes.
+                    </iframe>
+                    <p>OpenAI a annoncé un partenariat avec Apple pour intégrer ChatGPT dans les produits Apple. Cela permettra d'améliorer l'interaction des utilisateurs avec des outils comme Siri et autres technologies Apple.</p>
+                    <p><a href="https://openai.com/research/partnership-with-apple" target="_blank">Lire l'article complet sur OpenAI</a></p>
+                </div>
+
+                <!-- Article 2: Un avenir prometteur pour l'IA dans le domaine de la santé -->
+                <div class="ai-article">
+                    <h3>L'IA révolutionne le secteur de la santé</h3>
+                    <iframe src="https://www.healthcareitnews.com/news/ai-transforming-healthcare" width="100%" height="500px" frameborder="0" allowfullscreen>
+                        Ce navigateur ne prend pas en charge les iframes.
+                    </iframe>
+                    <p>Les applications de l'intelligence artificielle dans le domaine de la santé, telles que les diagnostics assistés par IA et les robots chirurgicaux, transforment les soins de santé.</p>
+                    <p><a href="https://www.healthcareitnews.com/news/ai-transforming-healthcare" target="_blank">Lire l'article complet sur Healthcare IT News</a></p>
+                </div>
+
+                <!-- Article 3: Les implications éthiques de l'intelligence artificielle -->
+                <div class="ai-article">
+                    <h3>Les défis éthiques de l'Intelligence Artificielle</h3>
+                    <iframe src="https://www.theverge.com/2024/ai-ethics-and-regulations" width="100%" height="500px" frameborder="0" allowfullscreen>
+                        Ce navigateur ne prend pas en charge les iframes.
+                    </iframe>
+                    <p>L'intelligence artificielle soulève des questions éthiques cruciales, notamment en matière de confidentialité, de biais algorithmique et d'impact sur l'emploi.</p>
+                    <p><a href="https://www.theverge.com/2024/ai-ethics-and-regulations" target="_blank">Lire l'article complet sur The Verge</a></p>
+                </div>
+
+                <!-- Article 4: Avancées récentes dans les applications de l'IA -->
+                <div class="ai-article">
+                    <h3>Les dernières avancées technologiques de l'IA</h3>
+                    <iframe src="https://www.techcrunch.com/ai-recent-advancements" width="100%" height="500px" frameborder="0" allowfullscreen>
+                        Ce navigateur ne prend pas en charge les iframes.
+                    </iframe>
+                    <p>Les progrès récents dans le domaine de l'intelligence artificielle incluent des algorithmes plus efficaces et des modèles de langage de plus en plus puissants.</p>
+                    <p><a href="https://www.techcrunch.com/ai-recent-advancements" target="_blank">Lire l'article complet sur TechCrunch</a></p>
+                </div>
+
+                <!-- Article 5: OpenAI GPT-4 et ses applications -->
+                <div class="ai-article">
+                    <h3>GPT-4 et ses nouvelles capacités</h3>
+                    <iframe src="https://openai.com/gpt-4-enhancements" width="100%" height="500px" frameborder="0" allowfullscreen>
+                        Ce navigateur ne prend pas en charge les iframes.
+                    </iframe>
+                    <p>GPT-4 continue d'évoluer et offre des capacités de génération de texte encore plus avancées. Cette version permet des applications plus créatives dans les domaines de la rédaction, de la recherche et de la compréhension du langage naturel.</p>
+                    <p><a href="https://openai.com/gpt-4-enhancements" target="_blank">Lire l'article complet sur OpenAI</a></p>
+                </div>
+            </section>
         </div>
     </section>
-
 </body>
-
 </html>
+
