@@ -180,6 +180,44 @@ nav {
     text-align: center;
 }
 
+/* Styles pour la section Stages */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.skill-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    flex: 1 1 calc(33.333% - 40px); /* Trois cartes par ligne */
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.skill-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+    flex-grow: 1;
+}
 /* Contact Section */
 .contact-grid {
     display: grid;
