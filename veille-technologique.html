@@ -1,108 +1,701 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille Technologique</title>
-    <link rel="stylesheet" href="style.css"> <!-- Utilisez votre fichier CSS existant -->
+    <title>Veille Technologique - Intelligence Artificielle & LLM - Portfolio Anzo Lo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Styles spécifiques pour la page veille technologique */
+        .veille-hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('ai-background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .veille-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .veille-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .veille-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+        
+        .veille-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .veille-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .veille-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .focus-topics {
+            margin: 30px 0;
+        }
+        
+        .focus-topics ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .focus-topics li {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            position: relative;
+            padding-left: 35px;
+            transition: var(--transition);
+        }
+        
+        .focus-topics li:hover {
+            background-color: #edf2f7;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        
+        .focus-topics li::before {
+            content: '\f0eb';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 10px;
+            top: 14px;
+            color: var(--primary-color);
+        }
+        
+        .news-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .news-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .news-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .news-card:hover .news-image img {
+            transform: scale(1.05);
+        }
+        
+        .news-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-content h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: var(--dark-color);
+        }
+        
+        .news-date {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+        
+        .news-content p {
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .news-content a {
+            align-self: flex-start;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+        
+        .news-content a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .rss-section {
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .rss-tabs {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        
+        .rss-tab {
+            padding: 10px 20px;
+            background-color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: var(--transition);
+            border: 1px solid #dee2e6;
+        }
+        
+        .rss-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .rss-tab:hover:not(.active) {
+            background-color: #e9ecef;
+        }
+        
+        .rss-content {
+            display: none;
+            max-height: 500px;
+            overflow-y: auto;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .rss-content.active {
+            display: block;
+        }
+        
+        .rss-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+        
+        .rss-item:last-child {
+            border-bottom: none;
+        }
+        
+        .rss-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .rss-item a {
+            color: var(--dark-color);
+            text-decoration: none;
+            display: block;
+        }
+        
+        .rss-item a:hover {
+            color: var(--primary-color);
+        }
+        
+        .rss-item-date {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        .tools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .tool-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .tool-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .tool-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .tool-card p {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+        
+        .tool-card a {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .tool-card a:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .focus-topics ul,
+            .news-container,
+            .tools-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .rss-tabs {
+                padding-bottom: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Barre de navigation -->
-    <div class="nav-container">
+    <header>
+        <div class="header-content">
+            <div class="name-container">
+                <h1>Anzo Lo</h1>
+                <p>Développeur Web / Étudiant BTS SIO SLAM</p>
+            </div>
         <nav>
-            <a href="portfolio.html" class="logo">AL</a>
-            <ul class="nav-links">
-                <li><a href="portfolio.html#accueil">Accueil</a></li>
-                <li><a href="portfolio.html#profil">Profil</a></li>
-                <li><a href="portfolio.html#parcours">Parcours</a></li>
-                <li><a href="portfolio.html#competences">Compétences</a></li>
-                <li><a href="portfolio.html#projets">Projets</a></li>
-                <li><a href="portfolio.html#bts">BTS SIO</a></li>
-                <li><a href="veille-technologique.html">Veille</a></li>
-                <li><a href="portfolio.html#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-
-    <!-- Contenu de la page Veille Technologique -->
-    <section class="section">
-        <div class="container">
-            <h1>Veille Technologique 📔</h1>
-            <br>
-
-            <h2>Qu'est-ce que la veille technologique ?</h2>
-            <p>
-                La veille technologique consiste à surveiller de manière proactive les évolutions, les innovations et les tendances dans le domaine technologique. Cela implique la collecte, l'analyse et la diffusion d'informations stratégiques pour rester informé des dernières avancées, favoriser l'adaptation et rester compétitif sur le plan technologique. Elle vise à anticiper les changements et à exploiter les opportunités offertes par les nouvelles technologies.
-            </p>
-            <br>
-
-            <h2>Les principaux outils de ma veille</h2>
-            <p>
-                J'ai effectué ma veille technologique grâce aux outils suivants : 
                 <ul>
-                    <li><strong>Feedly</strong>: un agrégateur de flux RSS pour suivre les dernières tendances technologiques.</li>
-                    <li><strong>OpenAI Newsletter</strong>: des informations sur les avancées en data science et intelligence artificielle.</li>
-                    <li><strong>Hitek.fr</strong>: un site internet pour suivre l'actualité High Tech et Geek.</li>
-                    <li><strong>Hardware.fr</strong>: pour suivre les dernières évolutions dans les composants informatiques.</li>
+                    <li><a href="index.html#about">À propos</a></li>
+                    <li><a href="index.html#skills">Compétences</a></li>
+                    <li><a href="index.html#projects">Projets</a></li>
+                    <li><a href="stage.html">Stage</a></li>
+                    <li><a href="veille-technologique.html">Veille Technologique</a></li>
                 </ul>
-            </p>
-            <br>
+            </nav>
+        </div>
+    </header>
 
-            <h2>Sujet de ma veille</h2>
-            <p>
-                Pour ma veille technologique, j'ai choisi de traiter le thème de l'intelligence artificielle (IA). Plus précisément, ma réflexion porte sur : <strong>Quel est le futur de l'intelligence artificielle dans notre société ?</strong> Je me concentre sur les applications pratiques de l'IA, ses enjeux éthiques et son impact potentiel sur divers secteurs.
-            </p>
-            <br>
-
-            <h2>Actualités récentes sur l'IA</h2>
-            <br>
-
-            <!-- Article 1: Reasoning AI Models by TechCrunch -->
-            <div class="article-block">
-                <h3>Reasoning AI Models: A Trend for Better or Worse</h3>
-                <p><strong>Date:</strong> 14 décembre 2024</p>
-                <p>
-                    L'article explore l'essor des modèles d'intelligence artificielle capables de raisonnement. Il examine leur potentiel et les préoccupations liées à leur adoption généralisée, notamment en termes d'éthique et de fiabilité.
-                </p>
-                <p><a href="https://techcrunch.com/2024/12/14/reasoning-ai-models-have-become-a-trend-for-better-or-worse/" target="_blank">Lire l'article</a></p>
-            </div>
-            <br>
-
-            <!-- Article 2: OpenAI and Apple Partnership -->
-            <div class="article-block">
-                <h3>OpenAI and Apple Announce Partnership</h3>
-                <p><strong>Date:</strong> 14 décembre 2024</p>
-                <p>
-                    Cet article discute du partenariat stratégique entre OpenAI et Apple pour intégrer des technologies d'IA avancées dans les produits Apple, afin de créer des expériences utilisateur plus personnalisées.
-                </p>
-                <p><a href="https://openai.com/index/openai-and-apple-announce-partnership/" target="_blank">Lire l'article</a></p>
-            </div>
-            <br>
-
-            <!-- Article 3: AI Ethics by Techniques Ingenieur -->
-            <div class="article-block">
-                <h3>Les Enjeux d'une IA Éthique et Durable</h3>
-                <p><strong>Date:</strong> 14 décembre 2024</p>
-                <p>
-                    Ce texte met en lumière les défis d'une intelligence artificielle qui respecte les normes éthiques et qui soit durable. Il aborde l'impact sur la société et les impératifs d'une régulation stricte.
-                </p>
-                <p><a href="https://www.techniques-ingenieur.fr/actualite/articles/connaitre-les-enjeux-d-une-ia-ethique-et-durable-140169/" target="_blank">Lire l'article</a></p>
-            </div>
-            <br>
-
-            <!-- Article 4: GPT-5 by Les Numeriques -->
-            <div class="article-block">
-                <h3>GPT-5: OpenAI Continues to Tease Its Future Model's Power</h3>
-                <p><strong>Date:</strong> 14 décembre 2024</p>
-                <p>
-                    OpenAI continue de teaser son futur modèle GPT-5, promettant des avancées majeures en matière de puissance et de capacités d'interaction. Ce modèle pourrait transformer de nombreuses industries.
-                </p>
-                <p><a href="https://www.lesnumeriques.com/intelligence-artificielle/gpt-5-openai-continue-de-teaser-la-puissance-de-son-futur-modele-n223817.html" target="_blank">Lire l'article</a></p>
-            </div>
-            <br>
-
+    <section class="veille-hero">
+        <div class="container">
+            <h1>Veille Technologique</h1>
+            <p>Intelligence Artificielle & Grands Modèles de Langage (LLM)</p>
         </div>
     </section>
+
+    <section id="veille-definition">
+        <div class="container">
+            <div class="veille-card">
+                <h3>Qu'est-ce qu'une veille technologique ?</h3>
+                <p>La veille technologique est un processus continu de surveillance et d'analyse des évolutions techniques et scientifiques dans un domaine précis. Elle permet de rester informé des innovations, des tendances émergentes et des avancées significatives afin d'anticiper les changements et d'adapter sa stratégie professionnelle.</p>
+                <p>Cette démarche proactive implique la collecte, l'organisation et l'analyse régulière d'informations pertinentes provenant de diverses sources : articles scientifiques, conférences, publications spécialisées, flux RSS, réseaux sociaux professionnels, etc.</p>
+                <p>Dans le cadre de mon BTS SIO, cette veille technologique est essentielle pour maintenir mes compétences à jour dans un secteur en constante évolution.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="veille-sujet">
+        <div class="container">
+            <div class="veille-card">
+                <h3>Sujet de ma veille : Les Grands Modèles de Langage (LLM)</h3>
+                <p>J'ai choisi de concentrer ma veille technologique sur les Grands Modèles de Langage (Large Language Models ou LLM), une branche de l'intelligence artificielle qui connaît un développement exponentiel depuis quelques années.</p>
+                <p>Les LLM sont des modèles d'IA capables de comprendre et de générer du langage humain avec un niveau de cohérence et de pertinence sans précédent. Ces technologies transforment rapidement de nombreux secteurs, des services clients à la création de contenu, en passant par la programmation assistée.</p>
+                
+                <div class="focus-topics">
+                    <h4>Suivi en temps réel des évolutions récentes avec une attention particulière sur :</h4>
+                    <ul>
+                        <li>Les avancées techniques des modèles de fondation (GPT-4, Claude, Gemini, LLaMA, etc.)</li>
+                        <li>Les applications pratiques des LLM dans le développement logiciel</li>
+                        <li>L'émergence des modèles multimodaux (texte, image, audio, vidéo)</li>
+                        <li>Les enjeux éthiques et réglementaires liés à ces technologies</li>
+                        <li>Les techniques d'optimisation et de déploiement des LLM</li>
+                        <li>Les nouveaux paradigmes de programmation assistée par IA</li>
+                        <li>Les entreprises innovantes dans le secteur des LLM</li>
+                        <li>L'accessibilité et la démocratisation des modèles open source</li>
+            </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="veille-outils">
+        <div class="container">
+            <div class="veille-card">
+                <h3>Mes outils de veille</h3>
+                <p>Pour effectuer ma veille technologique sur les LLM, j'utilise différents outils et sources d'information qui me permettent de rester à jour en temps réel :</p>
+                
+                <div class="tools-container">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-rss"></i>
+                        </div>
+                        <h4>Feedly</h4>
+                        <p>Agrégateur de flux RSS pour centraliser l'information</p>
+                        <a href="https://feedly.com" target="_blank">Accéder</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <h4>Twitter/X</h4>
+                        <p>Suivi des experts et chercheurs en IA</p>
+                        <a href="https://twitter.com" target="_blank">Accéder</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h4>Google Alerts</h4>
+                        <p>Alertes personnalisées sur les mots-clés pertinents</p>
+                        <a href="https://www.google.fr/alerts" target="_blank">Accéder</a>
+    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h4>GitHub</h4>
+                        <p>Suivi des dépôts open source liés aux LLM</p>
+                        <a href="https://github.com/topics/large-language-models" target="_blank">Accéder</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="veille-actualites">
+        <div class="container">
+            <div class="veille-card">
+                <h3>Dernières actualités</h3>
+                <p>Voici les dernières informations importantes concernant les Grands Modèles de Langage :</p>
+                
+                <div class="news-container">
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="https://via.placeholder.com/400x200?text=LLM+News" alt="Actualité LLM">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">Mise à jour automatique</span>
+                            <h4>Les dernières avancées des LLM</h4>
+                            <p>Les contenus de cette section sont mis à jour automatiquement via les flux RSS.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="veille-flux">
+        <div class="container">
+            <div class="veille-card">
+                <h3>Flux d'actualités en direct</h3>
+                <p>Cette section se met à jour automatiquement grâce aux flux RSS des meilleures sources d'information sur l'IA et les LLM :</p>
+                
+                <div class="rss-section">
+                    <div class="rss-tabs">
+                        <div class="rss-tab active" data-target="rss-ai-news">AI News</div>
+                        <div class="rss-tab" data-target="rss-techcrunch">TechCrunch IA</div>
+                        <div class="rss-tab" data-target="rss-mit">MIT Technology</div>
+                        <div class="rss-tab" data-target="rss-huggingface">Hugging Face</div>
+                        <div class="rss-tab" data-target="rss-papers">arXiv Papers</div>
+                    </div>
+                    
+                    <div id="rss-ai-news" class="rss-content active">
+                        <div class="rss-loader">
+                            <p>Chargement du flux RSS...</p>
+                        </div>
+                        <div class="rss-items"></div>
+                    </div>
+                    
+                    <div id="rss-techcrunch" class="rss-content">
+                        <div class="rss-loader">
+                            <p>Chargement du flux RSS...</p>
+                        </div>
+                        <div class="rss-items"></div>
+            </div>
+                    
+                    <div id="rss-mit" class="rss-content">
+                        <div class="rss-loader">
+                            <p>Chargement du flux RSS...</p>
+                        </div>
+                        <div class="rss-items"></div>
+            </div>
+                    
+                    <div id="rss-huggingface" class="rss-content">
+                        <div class="rss-loader">
+                            <p>Chargement du flux RSS...</p>
+                        </div>
+                        <div class="rss-items"></div>
+            </div>
+                    
+                    <div id="rss-papers" class="rss-content">
+                        <div class="rss-loader">
+                            <p>Chargement du flux RSS...</p>
+                        </div>
+                        <div class="rss-items"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <section id="veille-sources">
+        <div class="container">
+            <div class="veille-card">
+                <h3>Sources et ressources</h3>
+                <p>Voici les principales sources que j'utilise pour ma veille technologique sur les LLM :</p>
+                
+                <div class="focus-topics">
+                    <ul>
+                        <li><a href="https://huggingface.co/blog" target="_blank">Blog Hugging Face</a> - Actualités et tutoriels sur les modèles de langage</li>
+                        <li><a href="https://openai.com/blog" target="_blank">Blog OpenAI</a> - Publications officielles sur les avancées de GPT</li>
+                        <li><a href="https://ai.googleblog.com/" target="_blank">Google AI Blog</a> - Recherches et innovations de Google en IA</li>
+                        <li><a href="https://www.anthropic.com/research" target="_blank">Anthropic Research</a> - Publications sur Claude et l'IA constitutionnelle</li>
+                        <li><a href="https://arxiv.org/list/cs.CL/recent" target="_blank">arXiv</a> - Articles scientifiques récents sur le traitement du langage naturel</li>
+                        <li><a href="https://paperswithcode.com/area/natural-language-processing" target="_blank">Papers with Code</a> - Implémentations de recherches en NLP</li>
+                        <li><a href="https://www.reddit.com/r/MachineLearning/" target="_blank">Reddit r/MachineLearning</a> - Discussions communautaires sur l'IA</li>
+                        <li><a href="https://medium.com/tag/large-language-models" target="_blank">Medium</a> - Articles de praticiens sur les LLM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2023 Anzo Lo. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion des onglets RSS
+            const tabs = document.querySelectorAll('.rss-tab');
+            const contents = document.querySelectorAll('.rss-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Retirer la classe active de tous les onglets
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Ajouter la classe active à l'onglet cliqué
+                    this.classList.add('active');
+                    
+                    // Masquer tous les contenus
+                    contents.forEach(content => content.classList.remove('active'));
+                    
+                    // Afficher le contenu correspondant à l'onglet
+                    const target = this.getAttribute('data-target');
+                    document.getElementById(target).classList.add('active');
+                });
+            });
+
+            // Fonction pour charger un flux RSS avec un proxy pour contourner CORS
+            function loadRSS(feedUrl, containerId) {
+                const container = document.querySelector(`#${containerId} .rss-items`);
+                const loader = document.querySelector(`#${containerId} .rss-loader`);
+                
+                // URL du service proxy RSS2JSON pour contourner les problèmes CORS
+                const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
+                
+                fetch(proxyUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        loader.style.display = 'none';
+                        
+                        if (data.status === 'ok') {
+                            let html = '';
+                            
+                            // Limiter à 10 articles maximum
+                            const items = data.items.slice(0, 10);
+                            
+                            items.forEach(item => {
+                                const pubDate = new Date(item.pubDate);
+                                const formattedDate = pubDate.toLocaleDateString('fr-FR', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric'
+                                });
+                                
+                                html += `
+                                    <div class="rss-item">
+                                        <a href="${item.link}" target="_blank">
+                                            <h4>${item.title}</h4>
+                                            <div class="rss-item-date">${formattedDate}</div>
+                                        </a>
+                                    </div>
+                                `;
+                            });
+                            
+                            container.innerHTML = html;
+                        } else {
+                            container.innerHTML = '<p>Impossible de charger les données du flux RSS.</p>';
+                        }
+                    })
+                    .catch(error => {
+                        loader.style.display = 'none';
+                        container.innerHTML = `<p>Erreur lors du chargement du flux : ${error.message}</p>`;
+                    });
+            }
+            
+            // Charger les différents flux RSS
+            loadRSS('https://www.artificialintelligence-news.com/feed/', 'rss-ai-news');
+            loadRSS('https://techcrunch.com/tag/artificial-intelligence/feed/', 'rss-techcrunch');
+            loadRSS('https://www.technologyreview.com/topic/artificial-intelligence/feed', 'rss-mit');
+            loadRSS('https://huggingface.co/blog/feed.xml', 'rss-huggingface');
+            loadRSS('https://arxiv.org/rss/cs.CL', 'rss-papers');
+            
+            // Mise à jour automatique du contenu de la section "Dernières actualités"
+            function updateLatestNews() {
+                const newsContainer = document.querySelector('.news-container');
+                
+                // URL du service proxy RSS2JSON
+                const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent('https://www.artificialintelligence-news.com/feed/')}`;
+                
+                fetch(proxyUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'ok') {
+                            let html = '';
+                            
+                            // Prendre les 3 premiers articles
+                            const items = data.items.slice(0, 3);
+                            
+                            items.forEach(item => {
+                                const pubDate = new Date(item.pubDate);
+                                const formattedDate = pubDate.toLocaleDateString('fr-FR', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric'
+                                });
+                                
+                                // Extraire l'image de l'article si disponible
+                                let imageUrl = 'https://via.placeholder.com/400x200?text=IA+News';
+                                if (item.enclosure && item.enclosure.link) {
+                                    imageUrl = item.enclosure.link;
+                                } else if (item.thumbnail) {
+                                    imageUrl = item.thumbnail;
+                                } else {
+                                    // Essayer d'extraire l'image du contenu HTML
+                                    const tempDiv = document.createElement('div');
+                                    tempDiv.innerHTML = item.content;
+                                    const firstImage = tempDiv.querySelector('img');
+                                    if (firstImage && firstImage.src) {
+                                        imageUrl = firstImage.src;
+                                    }
+                                }
+                                
+                                // Extraire un extrait du contenu en texte brut
+                                const tempDiv = document.createElement('div');
+                                tempDiv.innerHTML = item.content;
+                                let excerpt = tempDiv.textContent || tempDiv.innerText;
+                                excerpt = excerpt.substring(0, 150) + '...';
+                                
+                                html += `
+                                    <div class="news-card">
+                                        <div class="news-image">
+                                            <img src="${imageUrl}" alt="${item.title}">
+                                        </div>
+                                        <div class="news-content">
+                                            <span class="news-date">${formattedDate}</span>
+                                            <h4>${item.title}</h4>
+                                            <p>${excerpt}</p>
+                                            <a href="${item.link}" target="_blank">Lire la suite</a>
+                                        </div>
+                                    </div>
+                                `;
+                            });
+                            
+                            newsContainer.innerHTML = html;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erreur lors de la mise à jour des actualités:', error);
+                    });
+            }
+            
+            // Mettre à jour les actualités au chargement
+            updateLatestNews();
+            
+            // Mise à jour périodique toutes les heures
+            setInterval(updateLatestNews, 3600000);
+            
+            // Mettre à jour périodiquement les flux RSS (toutes les 2 heures)
+            setInterval(() => {
+                loadRSS('https://www.artificialintelligence-news.com/feed/', 'rss-ai-news');
+                loadRSS('https://techcrunch.com/tag/artificial-intelligence/feed/', 'rss-techcrunch');
+                loadRSS('https://www.technologyreview.com/topic/artificial-intelligence/feed', 'rss-mit');
+                loadRSS('https://huggingface.co/blog/feed.xml', 'rss-huggingface');
+                loadRSS('https://arxiv.org/rss/cs.CL', 'rss-papers');
+            }, 7200000);
+        });
+    </script>
 </body>
 </html>
 

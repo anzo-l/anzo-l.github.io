@@ -3,284 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anzo Lo | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Mon Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="nav-container">
+    <header>
+        <div class="header-content">
+            <div class="name-container">
+                <h1>Anzo Lo</h1>
+                <p>Développeur Web / Étudiant BTS SIO SLAM</p>
+            </div>
         <nav>
-            <a href="#" class="logo">AL</a>
-            <ul class="nav-links">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#profil">Profil</a></li>
-                <li><a href="#parcours">Parcours</a></li>
-                <li><a href="#experiences">Expériences</a></li>
-                <li><a href="stages.html">Stages</a></li>
-                <li><a href="#competences">Compétences</a></li>
-                <li><a href="#projets">Projets</a></li>
-                <li><a href="#bts-sio">BTS SIO</a></li>
-                <li><a href="veille-technologique.html">Veille</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <ul>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#skills">Compétences</a></li>
+                    <li><a href="#projects">Projets</a></li>
+                    <li><a href="stage.html">Stage</a></li>
+                    <li><a href="veille-technologique.html">Veille</a></li>
             </ul>
         </nav>
-    </div>
-
-    <header id="accueil">
-        <div class="hero-content">
-            <h1>Anzo Lo</h1>
-            <h2>Étudiant BTS SIO SLAM | Passionné d'informatique</h2>
-            <a href="#profil" class="cta-button">Découvrir mon profil</a>
         </div>
     </header>
 
-    <section id="profil" class="section">
-        <h2 class="section-title">À propos de moi</h2>
-        <div class="profile-content">
-            <p>Je m'appelle Anzo Lo, étudiant en BTS Services Informatiques aux Organisations (SIO), spécialité SLAM, au lycée Charles de Foucauld. Passionné par l'informatique, j'ai développé un intérêt pour le développement logiciel et la cybersécurité.
-                Mon parcours m'a permis d'acquérir des compétences solides en programmation, gestion de projets et administration des systèmes. Je me passionne pour la création de solutions informatiques innovantes et l'optimisation des systèmes.
-                Mon objectif professionnel est de me spécialiser en cybersécurité, tout en continuant à explorer le développement logiciel, avec la volonté de contribuer à un environnement numérique plus sûr et accessible.</p>
+    <section id="hero">
+        <div class="container">
+            <h2>Bienvenue sur mon portfolio</h2>
+            <p>Découvrez mes projets et compétences</p>
+            <a href="#contact" class="btn">Me contacter</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>À propos de moi</h2>
+            <div class="about-content-simple animated-card">
+                <div class="about-text">
+                    <p>Je m'appelle Anzo Lo et je suis actuellement étudiant en BTS SIO option SLAM (Solutions Logicielles et Applications Métiers). Cette formation me permet d'acquérir des compétences solides en développement web et en programmation.</p>
+                    <p>À travers divers projets et stages, j'améliore continuellement mes compétences techniques et ma compréhension des enjeux du développement d'applications.</p>
+                    <div class="personal-info">
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>lo.anzo@yahoo.com</p>
+                </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <p>+33 7 82 02 85 88</p>
+            </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Votre ville, France</p>
+                </div>
+            </div>
+                    <div class="cv-button-container">
+                        <a href="https://cvalo.tiiny.site/" class="btn" target="_blank"><i class="fas fa-file-pdf"></i> Télécharger mon CV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Mes compétences</h2>
             
-            <div class="cv-section">
-                <a href="https://cvalo.tiiny.site/" class="cv-button" target="_blank" download>
-                    <i class="fas fa-file-pdf"></i> Voir mon CV
-
-                </a>
+            <div class="skills-grid-compact">
+                <div class="skills-category-container">
+                    <h3 class="skills-category"><i class="fas fa-code"></i> Langages et Frameworks</h3>
+                    <div class="skills-container-compact">
+                        <div class="skill-card-small">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <h3>Python</h3>
+                        </div>
+                        
+                        <div class="skill-card-small">
+                            <div class="skill-icon">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <h3>HTML</h3>
+                        </div>
+                        
+                        <div class="skill-card-small">
+                            <div class="skill-icon">
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                            <h3>CSS</h3>
+                        </div>
+                        
+                        <div class="skill-card-small">
+                            <div class="skill-icon">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <h3>JavaScript</h3>
+                        </div>
+                        
+                        <div class="skill-card-small">
+                            <div class="skill-icon">
+                                <i class="fab fa-php"></i>
+                            </div>
+                            <h3>PHP</h3>
+                        </div>
+                        
+                        <div class="skill-card-small">
+                            <div class="skill-icon">
+                                <i class="fab fa-laravel"></i>
+                            </div>
+                            <h3>Laravel</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-category-container">
+                    <h3 class="skills-category"><i class="fas fa-tools"></i> Outils de développement</h3>
+                    <div class="skills-container-compact">
+                        <div class="skill-card-small">
+                            <div class="skill-icon">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <h3>Git</h3>
+                        </div>
+                        
+                        <div class="skill-card-small">
+                            <div class="skill-icon">
+                                <i class="fab fa-linux"></i>
+                            </div>
+                            <h3>Linux</h3>
+                        </div>
+                        
+                        <div class="skill-card-small">
+                            <div class="skill-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>VS Code</h3>
+                        </div>
+                        
+                        <div class="skill-card-small">
+                            <div class="skill-icon">
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                            <h3>Eclipse IDE</h3>
+                        </div>
+                        
+                        <div class="skill-card-small">
+                            <div class="skill-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h3>VMWare</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-category-container">
+                    <h3 class="skills-category"><i class="fas fa-database"></i> Base de données</h3>
+                    <div class="skills-container-compact">
+                        <div class="skill-card-small">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3>SQL</h3>
+                        </div>
+                        
+                        <div class="skill-card-small">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3>MySQL</h3>
+                        </div>
+                        
+                        <div class="skill-card-small">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3>Oracle</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
     </section>
 
-    <section id="parcours" class="section">
-        <h2 class="section-title">Parcours</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>2023-2025</h3>
-                    <h4>BTS SIO SLAM</h4>
-                    <p>Lycée Charles de Foucauld</p>
-                </div>
+    <section id="projects">
+        <div class="container">
+            <h2>Mes projets</h2>
+            <div class="projects-container">
+                <!-- Projet 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="projet-parking.jpg" alt="Projet Parking">
             </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>2020-2023</h3>
-                    <h4>Licence MIASHS</h4>
-                    <p>Université Versailles Saint-Quentin-en-Yvelines</p>
-                </div>
+                    <div class="project-info">
+                        <h3>Projet Parking</h3>
+                        <p>Application de gestion de stationnement permettant de suivre les emplacements disponibles et d'optimiser l'utilisation des espaces de parking.</p>
+                        <a href="#" class="btn">Voir le projet</a>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>2017-2020</h3>
-                    <h4>Bac Général S</h4>
-                    <p>Lycée Darius Milhaud</p>
-                </div>
             </div>
-        </div>
-    </section>
-
-    <section id="experiences" class="section">
-        <h2 class="section-title">Expériences</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Avril à Juin 2024</h3>
-                    <h4>Stage à la DGFIP</h4>
-                    <p>
-                        <ul>
-                            <li>Installation, configuration et déploiement d'un serveur d'échange de fichiers (CFT) en environnement virtualisé.</li>
-                            <li>Développement d'un outil de scripting Bash permettant l'automatisation des tests d'une application.</li>
-                            <li>Vérifications de codes dans le cadre d'un audit d'accessibilité.</li>
-                        </ul>
-                    </p>
-                </div>
+                
+                <!-- Projet 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="projet-personnel.jpg" alt="Projet Personnel">
+            </div>
+                    <div class="project-info">
+                        <h3>Projet Personnel</h3>
+                        <p>Développement d'une application web personnelle qui répond à un besoin spécifique identifié lors de mes études.</p>
+                        <a href="#" class="btn">Voir le projet</a>
             </div>
         </div>
-    </section>
-
-    <section id="competences" class="section">
-        <h2 class="section-title">Compétences</h2>
-        <div class="skills-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-            <div class="skill-card">
-                <i class="fas fa-code fa-2x"></i>
-                <h3>Développement Web</h3>
-                <p>HTML, CSS, JavaScript</p>
+                
+                <!-- Projet 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="projet-serveur.jpg" alt="Projet d'installation Serveur CFT">
+                    </div>
+                    <div class="project-info">
+                        <h3>Projet d'installation Serveur CFT</h3>
+                        <p>Mise en place et configuration d'un serveur de transfert de fichiers sécurisé pour une entreprise.</p>
+                        <a href="#" class="btn">Voir le projet</a>
             </div>
-            <div class="skill-card">
-                <i class="fas fa-database fa-2x"></i>
-                <h3>Base de données</h3>
-                <p>MySQL, PostgreSQL</p>
             </div>
-            <div class="skill-card">
-                <i class="fas fa-laptop fa-2x"></i>
-                <h3>Linux & Windows</h3>
-                <p>Systèmes d'exploitation</p>
+                
+                <!-- Projet 4 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="projet-api.jpg" alt="Projet API de paiement">
             </div>
-            <div class="skill-card">
-                <i class="fas fa-server fa-2x"></i>
-                <h3>Back-end</h3>
-                <p>PHP, Java, Python</p>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-tools fa-2x"></i>
-                <h3>Outils</h3>
-                <p>Eclipse, Visual Studio Code, GitHub</p>    
-            </div>
-        </div>
-    </section>
-
-    <section id="projets" class="section">
-        <h2 class="section-title">Projets</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Projet Parking</h3>
-                <p>Création d'une application permettant de gérer des places de parking </p>
-                <a href="https://lienversleprojet1.com" class="pdf-button" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> Voir le projet
-                </a>
-            </div>
-            <div class="skill-card">
-                <h3>Projet Personnel</h3>
-                <p>Cette application de gestion du personnel, en ligne de commande et basée sur une architecture 3-tiers, est conçue pour évoluer en mode multi-utilisateurs avec une base de données. Elle propose trois niveaux d'accès :
-                    Norme employée : lecture seule.
-                    Administrateur de ligue : gestion des employés de sa ligue.
-                    Super-administrateur (ROOT) : contrôle global.</p>
-                <a href="https://projetperso.tiiny.site" class="pdf-button" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> Voir le projet
-                </a>
-            </div>
-            <div class="skill-card">
-                <h3>Projet d'installation Serveur CFT</h3>
-                <p>Installation, configuration et documentation pour le déploiement d'un serveur d'échange de fichiers (CFT) en environnement virtualisé.</p>
-                <a href="https://www.dropbox.com/scl/fi/9x021sgiswztwym32um5h/Documentation-Installation-serveur-CFT.pdf?rlkey=4ccpdmff0359jrzjnz1t9dk1m&st=amg3xbok&dl=0" class="pdf-button" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Voir la documentation
-                </a>
-            </div>
-            <div class="skill-card">
+                    <div class="project-info">
                 <h3>Projet API de paiement</h3>
-                <p>Evolution d'une API de paiement dans le cadre d’une réglementation bancaire : le but a été de créer des attributs supplémentaires dans la base de donnée et de permettre l’intégration des données reçues de notre partenaire dans ces nouveaux attributs</p>
-                <a href="https://www.dropbox.com/scl/fi/xzrub72t0t3wwqgipbwm7/Documentation-PASIFAE-PRO.pdf?rlkey=k9gm1tolmo2pakb6qh14x3a5z&st=pwi57lyk&dl=0" class="pdf-button" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> Voir le projet
-                </a>
+                        <p>Intégration d'une API de paiement sécurisée dans une application web de commerce électronique.</p>
+                        <a href="#" class="btn">Voir le projet</a>
+                    </div>
+                </div>
+                
+                <!-- Projet 5 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="tp-calculatrice.jpg" alt="TP Calculatrice">
+                    </div>
+                    <div class="project-info">
+                        <h3>TP Calculatrice</h3>
+                        <p>Développement d'une calculatrice fonctionnelle en JavaScript avec interface utilisateur interactive.</p>
+                        <a href="#" class="btn">Voir le projet</a>
+                    </div>
+                </div>
+                
+                <!-- Projet 6 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="tp-seven.jpg" alt="TP Seven">
+                    </div>
+                    <div class="project-info">
+                        <h3>TP Seven</h3>
+                        <p>Création d'une application web de gestion d'équipe suivant la méthodologie Agile.</p>
+                        <a href="#" class="btn">Voir le projet</a>
+                    </div>
+                </div>
+                
+                <!-- Projet 7 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="tp-devis.jpg" alt="TP Devis">
+                    </div>
+                    <div class="project-info">
+                        <h3>TP Devis</h3>
+                        <p>Application permettant de générer et gérer des devis pour une entreprise de prestation de services.</p>
+                        <a href="#" class="btn">Voir le projet</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-
-      <section id="bts-sio" class="section">
-        <h2 class="section-title">BTS SIO</h2>
-        <p>
-            Le <strong>Brevet de Technicien Supérieur aux Services Informatiques aux Organisations (BTS SIO)</strong> 
-            s'adresse à ceux qui souhaitent se former en deux ans aux métiers d'<strong>administrateur réseau</strong> ou de <strong>développeur</strong>. 
-            Ce diplôme permet aux étudiants de choisir entre une entrée directe sur le marché du travail ou la poursuite d’études dans le domaine de l’informatique.
-        </p>
-        <p>Le BTS SIO propose deux spécialités :</p>
-    
-        <div class="skills-grid" style="display: flex; justify-content: center; gap: 20px;">
-            <!-- Option SISR -->
-            <div class="skill-card" style="width: 45%; text-align: center;">
-                <h3>Option SISR - Solutions d'infrastructure, systèmes et réseaux</h3>
-                <p>
-                    L’option <strong>Solutions d’infrastructure, systèmes et réseaux (SISR)</strong> forme des professionnels 
-                    spécialisés dans l’installation, la maintenance, et la sécurité des systèmes informatiques. 
-                    Les diplômés peuvent gérer et administrer les réseaux d'une organisation tout en assurant leur maintenance et leur sécurité.
-                </p>
-                <p>Les métiers accessibles après un BTS SIO SISR incluent :</p>
-                <ul>
-                    <li>Administrateur systèmes et réseaux</li>
-                    <li>Informaticien support et déploiement</li>
-                    <li>Pilote d’exploitation</li>
-                    <li>Support systèmes et réseaux</li>
-                    <li>Technicien d’infrastructure</li>
-                    <li>Technicien de production</li>
-                    <li>Technicien micro et réseaux</li>
+    <section id="epreuve-e5">
+        <div class="container">
+            <h2>Épreuve E5 - BTS SIO</h2>
+            <div class="epreuve-content">
+                <div class="epreuve-info">
+                    <h3>Support et mise à disposition de services informatiques</h3>
+                    <ul class="epreuve-details">
+                        <li><strong>Coefficient :</strong> 4</li>
+                        <li><strong>Durée :</strong> 40 minutes (épreuve orale)</li>
+                        <li><strong>Documents requis :</strong> Tableau de Synthèse, Attestations de stages</li>
                 </ul>
+                    <p>Cette épreuve évalue les compétences du bloc "Support et mise à disposition de services informatiques". Le candidat présente son parcours professionnel pendant 10 minutes, suivi d'un échange de 30 minutes avec le jury pour expliciter ses réalisations.</p>
+                    <div class="btn-container">
+                        <a href="https://purple-tammara-87.tiiny.site" class="btn" target="_blank"><i class="fas fa-table"></i> Voir mon tableau de synthèse</a>
+                    </div>
             </div>
-    
-            <!-- Option SLAM -->
-            <div class="skill-card" style="width: 45%; text-align: center;">
-                <h3>Option SLAM - Solutions logicielles et applications métiers</h3>
-                <p>
-                    L’option <strong>Solutions logicielles et applications métiers (SLAM)</strong> forme des spécialistes en développement de logiciels. 
-                    Les étudiants apprendront à rédiger des cahiers des charges, à formuler des besoins techniques et fonctionnels, à développer des solutions logicielles, 
-                    et à les intégrer au sein d’une organisation.
-                </p>
-                <p>Les métiers accessibles après un BTS SIO SLAM incluent :</p>
-                <ul>
-                    <li>Développeur d’applications informatiques</li>
-                    <li>Développeur informatique</li>
-                    <li>Analyste d’applications ou d’études</li>
-                    <li>Analyste programmeur</li>
-                    <li>Programmeur analyste</li>
-                    <li>Programmeur d’applications</li>
-                    <li>Responsable des services applicatifs</li>
-                    <li>Technicien d’études informatiques</li>
-                </ul>
-            </div>
-        </div>
-    
-      <!-- Épreuve E4 -->
-      <div class="skills-grid" style="display: flex; justify-content: center; margin-top: 40px;">
-        <div class="skill-card" style="width: 70%; text-align: center;">
-            <h3>Épreuve E4</h3>
-            <p><strong>Informations de l'Épreuve :</strong></p>
-            <ul>
-                <li><strong>Nom :</strong> Support et mise à disposition de services informatiques</li>
-                <li><strong>Coefficient :</strong> Coeff. 4</li>
-                <li><strong>Durée :</strong> Épreuve ponctuelle orale (40 minutes)</li>
-                <li><strong>Documents à fournir :</strong> Tableau de Synthèse, Attestations de stages</li>
-            </ul>
-            <p><strong>Présentation de l'Épreuve E4</strong></p>
-            <p>Cette épreuve vise à évaluer chez la personne candidate l’acquisition des compétences décrites dans le bloc de compétences « Support et mise à disposition de services informatiques ».</p>
-            <br>
-            <p><strong>Modalités d'évaluation :</strong></p>
-            <p>Forme ponctuelle orale (durée 40 minutes) :</p>
-            <br>
-            <p>
-                L’épreuve comporte deux phases consécutives. Pendant 10 minutes (maximum), la personne candidate présente son parcours de professionnalisation et justifie les modalités d’acquisition des compétences du bloc « Support et mise à disposition de services informatiques ».
-                <br>
-                S’ensuit 30 minutes d’échange avec le jury qui permettent d’expliciter et d’apprécier le parcours de professionnalisation ainsi qu’une ou plusieurs réalisations décrites dans le dossier numérique.
-            </p>
-            <br>
-            <a href="https://purple-tammara-87.tiiny.site" class="cta-button" style="margin-top: 20px;" target="_blank">Voir le tableau de synthèse</a>
-
-            <a href="https://www.dropbox.com/scl/fi/yf98nzmoqvu551jxgo7ux/Pr-sentation-de.pdf?rlkey=elxl77nldka1h1fckwy5k2uog&st=2xydknf6&dl=0" class="cta-button" target="_blank" download>
-                Voir la présentation diapo
-            </a>
         </div>
     </div>
 </section>
     
-    
-
-    <section id="contact" class="section">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-grid">
+    <section id="contact">
+        <div class="container">
+            <h2>Me contacter</h2>
+            <div class="contact-container">
             <div class="contact-info">
-                <div class="contact-item">
+                    <div class="info-item">
                     <i class="fas fa-envelope"></i>
-                    <a href="mailto:lo.anzo@yahoo.com">lo.anzo@yahoo.com</a>
+                        <p>lo.anzo@yahoo.com</p>
                 </div>
-                <div class="contact-item">
+                    <div class="info-item">
                     <i class="fas fa-phone"></i>
-                    <a href="tel:0782028588">07 82 02 85 88</a>
+                        <p>+33 7 82 02 85 88</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Paris, France</p>
+                    </div>
                 </div>
-            </div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <p>Paris, France</p>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Votre nom" required>
+                        <input type="email" placeholder="Votre email" required>
+                        <textarea placeholder="Votre message" required></textarea>
+                        <button type="submit" class="btn">Envoyer</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Anzo Lo - Portfolio BTS SIO SLAM</p>
+        <div class="container">
         <div class="social-links">
             <a href="#"><i class="fab fa-linkedin"></i></a>
             <a href="#"><i class="fab fa-github"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2025 Anzo Lo. Tous droits réservés.</p>
         </div>
     </footer>
 
