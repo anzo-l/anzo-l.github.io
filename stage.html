@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Stage - Portfolio Anzo Lo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <base href="./">
     <style>
         /* Styles spécifiques à la page stage */
         .stage-hero {
@@ -163,11 +164,11 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html#about">À propos</a></li>
-                    <li><a href="index.html#skills">Compétences</a></li>
-                    <li><a href="index.html#projects">Projets</a></li>
-                    <li><a href="stage.html">Stage</a></li>
-                    <li><a href="veille-technologique.html">Veille Technologique</a></li>
+                    <li><a href="./index.html#about">À propos</a></li>
+                    <li><a href="./index.html#skills">Compétences</a></li>
+                    <li><a href="./index.html#projects">Projets</a></li>
+                    <li><a href="./stage.html">Stage</a></li>
+                    <li><a href="./veille-technologique.html">Veille Technologique</a></li>
                 </ul>
             </nav>
         </div>
@@ -362,28 +363,6 @@
         </div>
     </footer>
 
-    <script>
-        // Script pour les onglets de stage
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('.stage-tab');
-            const contents = document.querySelectorAll('.stage-content');
-            
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Retirer la classe active de tous les onglets
-                    tabs.forEach(t => t.classList.remove('active'));
-                    // Ajouter la classe active à l'onglet cliqué
-                    this.classList.add('active');
-                    
-                    // Masquer tous les contenus
-                    contents.forEach(content => content.classList.remove('active'));
-                    
-                    // Afficher le contenu correspondant à l'onglet
-                    const target = this.getAttribute('data-target');
-                    document.getElementById(target).classList.add('active');
-                });
-            });
-        });
-    </script>
+    <script src="./script.js"></script>
 </body>
 </html> 

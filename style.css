@@ -88,7 +88,7 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('hero-bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./images/background.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -457,4 +457,15 @@ footer {
     .skills-container-compact {
         grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
     }
+}
+
+/* Pour les polices personnalisées, assurez-vous que les chemins sont corrects */
+@font-face {
+    font-family: 'MaPolice';
+    /* Mauvais exemple: */
+    /* src: url('/fonts/mapolice.woff2'); */
+    
+    /* Bon exemple: */
+    src: url('./fonts/mapolice.woff2') format('woff2'),
+         url('./fonts/mapolice.woff') format('woff');
 }

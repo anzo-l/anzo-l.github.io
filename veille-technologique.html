@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veille Technologique - Intelligence Artificielle & LLM - Portfolio Anzo Lo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <base href="./">
     <style>
         /* Styles spécifiques pour la page veille technologique */
         .veille-hero {
@@ -326,14 +327,14 @@
             </div>
         <nav>
                 <ul>
-                    <li><a href="index.html#about">À propos</a></li>
-                    <li><a href="index.html#skills">Compétences</a></li>
-                    <li><a href="index.html#projects">Projets</a></li>
-                    <li><a href="stage.html">Stage</a></li>
-                    <li><a href="veille-technologique.html">Veille Technologique</a></li>
-                </ul>
-            </nav>
-        </div>
+                    <li><a href="./index.html#about">À propos</a></li>
+                    <li><a href="./index.html#skills">Compétences</a></li>
+                    <li><a href="./index.html#projects">Projets</a></li>
+                    <li><a href="./stage.html">Stage</a></li>
+                    <li><a href="./veille-technologique.html">Veille Technologique</a></li>
+            </ul>
+        </nav>
+    </div>
     </header>
 
     <section class="veille-hero">
@@ -372,7 +373,7 @@
                         <li>Les nouveaux paradigmes de programmation assistée par IA</li>
                         <li>Les entreprises innovantes dans le secteur des LLM</li>
                         <li>L'accessibilité et la démocratisation des modèles open source</li>
-            </ul>
+                </ul>
                 </div>
             </div>
         </div>
@@ -410,7 +411,7 @@
                         <h4>Google Alerts</h4>
                         <p>Alertes personnalisées sur les mots-clés pertinents</p>
                         <a href="https://www.google.fr/alerts" target="_blank">Accéder</a>
-    </div>
+                    </div>
 
                     <div class="tool-card">
                         <div class="tool-icon">
@@ -534,168 +535,7 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Gestion des onglets RSS
-            const tabs = document.querySelectorAll('.rss-tab');
-            const contents = document.querySelectorAll('.rss-content');
-            
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Retirer la classe active de tous les onglets
-                    tabs.forEach(t => t.classList.remove('active'));
-                    // Ajouter la classe active à l'onglet cliqué
-                    this.classList.add('active');
-                    
-                    // Masquer tous les contenus
-                    contents.forEach(content => content.classList.remove('active'));
-                    
-                    // Afficher le contenu correspondant à l'onglet
-                    const target = this.getAttribute('data-target');
-                    document.getElementById(target).classList.add('active');
-                });
-            });
-
-            // Fonction pour charger un flux RSS avec un proxy pour contourner CORS
-            function loadRSS(feedUrl, containerId) {
-                const container = document.querySelector(`#${containerId} .rss-items`);
-                const loader = document.querySelector(`#${containerId} .rss-loader`);
-                
-                // URL du service proxy RSS2JSON pour contourner les problèmes CORS
-                const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
-                
-                fetch(proxyUrl)
-                    .then(response => response.json())
-                    .then(data => {
-                        loader.style.display = 'none';
-                        
-                        if (data.status === 'ok') {
-                            let html = '';
-                            
-                            // Limiter à 10 articles maximum
-                            const items = data.items.slice(0, 10);
-                            
-                            items.forEach(item => {
-                                const pubDate = new Date(item.pubDate);
-                                const formattedDate = pubDate.toLocaleDateString('fr-FR', {
-                                    year: 'numeric',
-                                    month: 'long',
-                                    day: 'numeric'
-                                });
-                                
-                                html += `
-                                    <div class="rss-item">
-                                        <a href="${item.link}" target="_blank">
-                                            <h4>${item.title}</h4>
-                                            <div class="rss-item-date">${formattedDate}</div>
-                                        </a>
-                                    </div>
-                                `;
-                            });
-                            
-                            container.innerHTML = html;
-                        } else {
-                            container.innerHTML = '<p>Impossible de charger les données du flux RSS.</p>';
-                        }
-                    })
-                    .catch(error => {
-                        loader.style.display = 'none';
-                        container.innerHTML = `<p>Erreur lors du chargement du flux : ${error.message}</p>`;
-                    });
-            }
-            
-            // Charger les différents flux RSS
-            loadRSS('https://www.artificialintelligence-news.com/feed/', 'rss-ai-news');
-            loadRSS('https://techcrunch.com/tag/artificial-intelligence/feed/', 'rss-techcrunch');
-            loadRSS('https://www.technologyreview.com/topic/artificial-intelligence/feed', 'rss-mit');
-            loadRSS('https://huggingface.co/blog/feed.xml', 'rss-huggingface');
-            loadRSS('https://arxiv.org/rss/cs.CL', 'rss-papers');
-            
-            // Mise à jour automatique du contenu de la section "Dernières actualités"
-            function updateLatestNews() {
-                const newsContainer = document.querySelector('.news-container');
-                
-                // URL du service proxy RSS2JSON
-                const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent('https://www.artificialintelligence-news.com/feed/')}`;
-                
-                fetch(proxyUrl)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.status === 'ok') {
-                            let html = '';
-                            
-                            // Prendre les 3 premiers articles
-                            const items = data.items.slice(0, 3);
-                            
-                            items.forEach(item => {
-                                const pubDate = new Date(item.pubDate);
-                                const formattedDate = pubDate.toLocaleDateString('fr-FR', {
-                                    year: 'numeric',
-                                    month: 'long',
-                                    day: 'numeric'
-                                });
-                                
-                                // Extraire l'image de l'article si disponible
-                                let imageUrl = 'https://via.placeholder.com/400x200?text=IA+News';
-                                if (item.enclosure && item.enclosure.link) {
-                                    imageUrl = item.enclosure.link;
-                                } else if (item.thumbnail) {
-                                    imageUrl = item.thumbnail;
-                                } else {
-                                    // Essayer d'extraire l'image du contenu HTML
-                                    const tempDiv = document.createElement('div');
-                                    tempDiv.innerHTML = item.content;
-                                    const firstImage = tempDiv.querySelector('img');
-                                    if (firstImage && firstImage.src) {
-                                        imageUrl = firstImage.src;
-                                    }
-                                }
-                                
-                                // Extraire un extrait du contenu en texte brut
-                                const tempDiv = document.createElement('div');
-                                tempDiv.innerHTML = item.content;
-                                let excerpt = tempDiv.textContent || tempDiv.innerText;
-                                excerpt = excerpt.substring(0, 150) + '...';
-                                
-                                html += `
-                                    <div class="news-card">
-                                        <div class="news-image">
-                                            <img src="${imageUrl}" alt="${item.title}">
-                                        </div>
-                                        <div class="news-content">
-                                            <span class="news-date">${formattedDate}</span>
-                                            <h4>${item.title}</h4>
-                                            <p>${excerpt}</p>
-                                            <a href="${item.link}" target="_blank">Lire la suite</a>
-                                        </div>
-                                    </div>
-                                `;
-                            });
-                            
-                            newsContainer.innerHTML = html;
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Erreur lors de la mise à jour des actualités:', error);
-                    });
-            }
-            
-            // Mettre à jour les actualités au chargement
-            updateLatestNews();
-            
-            // Mise à jour périodique toutes les heures
-            setInterval(updateLatestNews, 3600000);
-            
-            // Mettre à jour périodiquement les flux RSS (toutes les 2 heures)
-            setInterval(() => {
-                loadRSS('https://www.artificialintelligence-news.com/feed/', 'rss-ai-news');
-                loadRSS('https://techcrunch.com/tag/artificial-intelligence/feed/', 'rss-techcrunch');
-                loadRSS('https://www.technologyreview.com/topic/artificial-intelligence/feed', 'rss-mit');
-                loadRSS('https://huggingface.co/blog/feed.xml', 'rss-huggingface');
-                loadRSS('https://arxiv.org/rss/cs.CL', 'rss-papers');
-            }, 7200000);
-        });
-    </script>
+    <script src="./script.js"></script>
 </body>
 </html>
 

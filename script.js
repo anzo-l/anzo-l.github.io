@@ -172,3 +172,11 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Bon exemple
+fetch('./data/info.json')
+    .then(response => response.json())
+    .then(data => {
+        // traitement des données
+    })
+    .catch(error => console.error('Erreur de chargement:', error));
