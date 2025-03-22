@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTS SIO - Portfolio Anzo Lo</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <base href="./">
+    <style>
+        .bts-hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('education-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .bts-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .bts-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .bts-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+        
+        .bts-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .bts-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .bts-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .options-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .option-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .option-card h4 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .option-card h4 i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .option-card p {
+            margin-bottom: 15px;
+        }
+        
+        .option-card ul {
+            list-style: none;
+            padding-left: 10px;
+            margin-top: 20px;
+        }
+        
+        .option-card ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .option-card ul li::before {
+            content: '\f0a4';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+        
+        .option-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+        
+        .slam-card::after {
+            background-color: #3498db;
+        }
+        
+        .sisr-card::after {
+            background-color: #2ecc71;
+        }
+        
+        .epreuve-content {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 900px;
+            margin: 30px auto;
+        }
+        
+        .epreuve-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .epreuve-details {
+            list-style: none;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .epreuve-details li {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
+        
+        .btn-container {
+            margin-top: 25px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .options-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="name-container">
+                <h1>Anzo Lo</h1>
+                <p>Développeur Web / Étudiant BTS SIO SLAM</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="./index.html#about">À propos</a></li>
+                    <li><a href="./index.html#skills">Compétences</a></li>
+                    <li><a href="./index.html#projects">Projets</a></li>
+                    <li><a href="./stage.html">Stages</a></li>
+                    <li><a href="./bts-sio.html">E5|BTS SIO</a></li>
+                    <li><a href="./veille-technologique.html">Veille</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="bts-hero">
+        <div class="container">
+            <h1>BTS SIO</h1>
+            <p>Services Informatiques aux Organisations</p>
+        </div>
+    </section>
+
+    <section id="bts-description">
+        <div class="container">
+            <div class="bts-card">
+                <h3>Qu'est-ce que le BTS SIO ?</h3>
+                <p>Le Brevet de Technicien Supérieur Services Informatiques aux Organisations (BTS SIO) est une formation de niveau bac+2 qui prépare aux métiers de l'informatique. Elle permet d'acquérir des compétences techniques, organisationnelles et relationnelles nécessaires pour s'intégrer rapidement dans le monde professionnel.</p>
+                <p>Cette formation se déroule sur deux années et propose deux options de spécialisation à partir de la fin du premier semestre :</p>
+                
+                <div class="options-container">
+                    <div class="option-card slam-card">
+                        <h4><i class="fas fa-code"></i> Option SLAM</h4>
+                        <p><strong>Solutions Logicielles et Applications Métiers</strong></p>
+                        <p>L'option SLAM forme des spécialistes du développement d'applications informatiques. Elle prépare aux métiers de la conception, du développement, de l'intégration et de la maintenance des applications.</p>
+                        <h5>Débouchés professionnels :</h5>
+                        <ul>
+                            <li>Développeur d'applications</li>
+                            <li>Programmeur analyste</li>
+                            <li>Développeur web</li>
+                            <li>Intégrateur web</li>
+                            <li>Technicien d'études informatiques</li>
+                            <li>Analyste programmeur</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="option-card sisr-card">
+                        <h4><i class="fas fa-network-wired"></i> Option SISR</h4>
+                        <p><strong>Solutions d'Infrastructure, Systèmes et Réseaux</strong></p>
+                        <p>L'option SISR forme des professionnels des réseaux et équipements informatiques. Elle prépare aux métiers liés à l'installation, la maintenance et la sécurité des équipements et réseaux informatiques.</p>
+                        <h5>Débouchés professionnels :</h5>
+                        <ul>
+                            <li>Administrateur systèmes et réseaux</li>
+                            <li>Technicien d'infrastructure</li>
+                            <li>Technicien systèmes et réseaux</li>
+                            <li>Technicien de maintenance</li>
+                            <li>Responsable d'exploitation</li>
+                            <li>Technicien de production</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p>Le BTS SIO offre de nombreux avantages, notamment une forte employabilité, des stages en entreprise pour acquérir de l'expérience professionnelle, et la possibilité de poursuivre des études en licence professionnelle, licence générale, ou école d'ingénieur.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="epreuve-e5">
+        <div class="container">
+            <div class="bts-card">
+                <h3>Épreuve E5 - BTS SIO</h3>
+                <div class="epreuve-content">
+                    <div class="epreuve-info">
+                        <h3>Support et mise à disposition de services informatiques</h3>
+                        <ul class="epreuve-details">
+                            <li><strong>Coefficient :</strong> 4</li>
+                            <li><strong>Durée :</strong> 40 minutes (épreuve orale)</li>
+                            <li><strong>Documents requis :</strong> Tableau de Synthèse, Attestations de stages</li>
+                        </ul>
+                        <p>Cette épreuve évalue les compétences du bloc "Support et mise à disposition de services informatiques". Le candidat présente son parcours professionnel pendant 10 minutes, suivi d'un échange de 30 minutes avec le jury pour expliciter ses réalisations.</p>
+                        <div class="btn-container">
+                            <a href="ttps://purple-tammara-87.tiiny.site" class="btn" target="_blank"><i class="fas fa-table"></i> Voir mon tableau de synthèse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="poursuite-etudes">
+        <div class="container">
+            <div class="bts-card">
+                <h3>Poursuites d'études après le BTS SIO</h3>
+                <p>Le BTS SIO offre de nombreuses possibilités de poursuite d'études pour les étudiants souhaitant approfondir leurs compétences :</p>
+                
+                <div class="options-container">
+                    <div class="option-card">
+                        <h4><i class="fas fa-graduation-cap"></i> Licences Professionnelles</h4>
+                        <ul>
+                            <li>Développement d'applications</li>
+                            <li>Administration de réseaux et systèmes</li>
+                            <li>Sécurité informatique</li>
+                            <li>Intelligence artificielle</li>
+                            <li>Métiers du web et du commerce électronique</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="option-card">
+                        <h4><i class="fas fa-university"></i> Écoles d'ingénieurs</h4>
+                        <ul>
+                            <li>EPITA, EPITECH</li>
+                            <li>Écoles d'ingénieurs avec admissions parallèles</li>
+                            <li>Formations en alternance</li>
+                            <li>Cycles préparatoires intégrés</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p>Grâce à sa formation polyvalente, un diplômé du BTS SIO peut également intégrer directement le marché du travail ou choisir de poursuivre en Master spécialisé après un parcours de Licence générale.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2023 Anzo Lo. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>

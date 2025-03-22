@@ -53,17 +53,28 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element);
     });
 
-    // Navigation fluide
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Sélectionner tous les liens de navigation qui pointent vers une ancre sur la même page
+    document.querySelectorAll('header nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+            e.preventDefault(); // Empêcher le comportement par défaut du lien
+            
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
+                // Tenir compte de la hauteur du header fixe
+                const headerHeight = document.querySelector('header').offsetHeight;
+                
+                // Calculer la position exacte de la section cible
+                const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                
+                // Position finale avec ajustement pour le header
+                const offsetPosition = targetPosition - headerHeight;
+                
+                // Faire défiler la page en douceur jusqu'à la section
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
+                    top: offsetPosition,
+                    behavior: 'smooth' // Animation de défilement fluide
                 });
             }
         });

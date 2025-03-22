@@ -167,8 +167,9 @@
                     <li><a href="./index.html#about">À propos</a></li>
                     <li><a href="./index.html#skills">Compétences</a></li>
                     <li><a href="./index.html#projects">Projets</a></li>
-                    <li><a href="./stage.html">Stage</a></li>
-                    <li><a href="./veille-technologique.html">Veille Technologique</a></li>
+                    <li><a href="./stage.html">Stages</a></li>
+                    <li><a href="./bts-sio.html">E5|BTS SIO</a></li>
+                    <li><a href="./veille-technologique.html">Veille</a></li>
                 </ul>
             </nav>
         </div>
@@ -229,36 +230,36 @@
                 
                 <div class="stage-card">
                     <h3>Compétences développées</h3>
-                    <div class="skills-container-compact">
-                        <div class="skill-card-small">
+                    <div class="skills-container-medium">
+                        <div class="skill-card-medium">
                             <div class="skill-icon">
                                 <i class="fas fa-server"></i>
                             </div>
                             <h3>Administration serveur</h3>
                         </div>
                         
-                        <div class="skill-card-small">
+                        <div class="skill-card-medium">
                             <div class="skill-icon">
                                 <i class="fab fa-linux"></i>
                             </div>
                             <h3>Linux</h3>
                         </div>
                         
-                        <div class="skill-card-small">
+                        <div class="skill-card-medium">
                             <div class="skill-icon">
                                 <i class="fas fa-terminal"></i>
                             </div>
                             <h3>Bash</h3>
                         </div>
                         
-                        <div class="skill-card-small">
+                        <div class="skill-card-medium">
                             <div class="skill-icon">
                                 <i class="fas fa-universal-access"></i>
                             </div>
                             <h3>Accessibilité</h3>
                         </div>
                         
-                        <div class="skill-card-small">
+                        <div class="skill-card-medium">
                             <div class="skill-icon">
                                 <i class="fas fa-network-wired"></i>
                             </div>
@@ -311,36 +312,36 @@
                 
                 <div class="stage-card">
                     <h3>Compétences développées</h3>
-                    <div class="skills-container-compact">
-                        <div class="skill-card-small">
+                    <div class="skills-container-medium">
+                        <div class="skill-card-medium">
                             <div class="skill-icon">
                                 <i class="fab fa-java"></i>
                             </div>
                             <h3>Java</h3>
                         </div>
                         
-                        <div class="skill-card-small">
+                        <div class="skill-card-medium">
                             <div class="skill-icon">
                                 <i class="fas fa-database"></i>
                             </div>
                             <h3>SQL</h3>
                         </div>
                         
-                        <div class="skill-card-small">
+                        <div class="skill-card-medium">
                             <div class="skill-icon">
                                 <i class="fas fa-code"></i>
                             </div>
                             <h3>XML</h3>
                         </div>
                         
-                        <div class="skill-card-small">
+                        <div class="skill-card-medium">
                             <div class="skill-icon">
                                 <i class="fas fa-cogs"></i>
                             </div>
                             <h3>API</h3>
                         </div>
                         
-                        <div class="skill-card-small">
+                        <div class="skill-card-medium">
                             <div class="skill-icon">
                                 <i class="fas fa-vial"></i>
                             </div>
@@ -363,6 +364,28 @@
         </div>
     </footer>
 
-    <script src="./script.js"></script>
+    <script>
+        // Script pour les onglets de stage - Correction du problème
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.stage-tab');
+            const contents = document.querySelectorAll('.stage-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Retirer la classe active de tous les onglets
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Ajouter la classe active à l'onglet cliqué
+                    this.classList.add('active');
+                    
+                    // Masquer tous les contenus
+                    contents.forEach(content => content.classList.remove('active'));
+                    
+                    // Afficher le contenu correspondant à l'onglet
+                    const target = this.getAttribute('data-target');
+                    document.getElementById(target).classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html> 
