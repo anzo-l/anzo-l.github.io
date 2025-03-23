@@ -153,6 +153,19 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .skill-item:hover .skill-icon {
+            transform: scale(1.1);
+        }
+        
+        .skill-icon {
+            transition: transform 0.3s ease;
+        }
     </style>
 </head>
 <body>
@@ -226,44 +239,79 @@
                             <li>Vérification du code dans le cadre d'un audit d'accessibilité</li>
                         </ul>
                     </div>
+                    
+                    <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
+                        <div class="project-box" style="background-color: #f8f9fa; border-radius: 10px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                            <h4 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.2rem;">Projet Installation Serveur CFT</h4>
+                            <p style="margin-bottom: 15px;">Configuration et déploiement d'un serveur d'échange de fichiers sécurisé en environnement Linux.</p>
+                            <div style="display: flex; gap: 10px;">
+                                <a href="./doc/Documentation installation serveur CFT.pdf" class="btn" style="padding: 8px 15px; font-size: 0.9rem;" target="_blank">Documentation</a>
+                                <a href="./doc/INSTALLATION ET PARAMETRAGE JAVA POUR UTILISER CFT.pdf" class="btn" style="padding: 8px 15px; font-size: 0.9rem;" target="_blank">Parametrage</a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-box" style="background-color: #f8f9fa; border-radius: 10px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                            <h4 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.2rem;"> Développement d'un outil de script Bash</h4>
+                            <p style="margin-bottom: 15px;">Création d'un menu en shell qui affiche et automatise les tests d'une application seuil du prélèvement à la source.</p>
+                            <div style="display: flex; gap: 10px;">
+                                <a href="./doc/Documentation script bash.pdf" class="btn" style="padding: 8px 15px; font-size: 0.9rem;" target="_blank">Documentation</a>
+                                <a href="https://github.com/anzo-l/Developpement-script-bash-/blob/main/script.sh" class="btn" style="padding: 8px 15px; font-size: 0.9rem;" target="_blank">Code source</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="stage-card">
                     <h3>Compétences développées</h3>
-                    <div class="skills-container-medium">
-                        <div class="skill-card-medium">
-                            <div class="skill-icon">
+                    <div class="skills-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-top: 25px;">
+                        <div class="skill-item" style="background: white; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;">
+                            <div class="skill-icon" style="font-size: 2.5rem; color: #4a69bd; margin-bottom: 15px;">
                                 <i class="fas fa-server"></i>
                             </div>
-                            <h3>Administration serveur</h3>
+                            <h4 style="font-size: 1rem; margin-bottom: 10px;">Administration serveur</h4>
+                            <div class="skill-level" style="width: 80%; height: 6px; background: #e9ecef; border-radius: 3px; margin: 0 auto;">
+                                <div style="width: 85%; height: 100%; background: #4a69bd; border-radius: 3px;"></div>
+                            </div>
                         </div>
                         
-                        <div class="skill-card-medium">
-                            <div class="skill-icon">
+                        <div class="skill-item" style="background: white; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;">
+                            <div class="skill-icon" style="font-size: 2.5rem; color: #4a69bd; margin-bottom: 15px;">
                                 <i class="fab fa-linux"></i>
                             </div>
-                            <h3>Linux</h3>
+                            <h4 style="font-size: 1rem; margin-bottom: 10px;">Linux</h4>
+                            <div class="skill-level" style="width: 80%; height: 6px; background: #e9ecef; border-radius: 3px; margin: 0 auto;">
+                                <div style="width: 90%; height: 100%; background: #4a69bd; border-radius: 3px;"></div>
+                            </div>
                         </div>
                         
-                        <div class="skill-card-medium">
-                            <div class="skill-icon">
+                        <div class="skill-item" style="background: white; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;">
+                            <div class="skill-icon" style="font-size: 2.5rem; color: #4a69bd; margin-bottom: 15px;">
                                 <i class="fas fa-terminal"></i>
                             </div>
-                            <h3>Bash</h3>
+                            <h4 style="font-size: 1rem; margin-bottom: 10px;">Bash</h4>
+                            <div class="skill-level" style="width: 80%; height: 6px; background: #e9ecef; border-radius: 3px; margin: 0 auto;">
+                                <div style="width: 80%; height: 100%; background: #4a69bd; border-radius: 3px;"></div>
+                            </div>
                         </div>
                         
-                        <div class="skill-card-medium">
-                            <div class="skill-icon">
+                        <div class="skill-item" style="background: white; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;">
+                            <div class="skill-icon" style="font-size: 2.5rem; color: #4a69bd; margin-bottom: 15px;">
                                 <i class="fas fa-universal-access"></i>
                             </div>
-                            <h3>Accessibilité</h3>
+                            <h4 style="font-size: 1rem; margin-bottom: 10px;">Accessibilité</h4>
+                            <div class="skill-level" style="width: 80%; height: 6px; background: #e9ecef; border-radius: 3px; margin: 0 auto;">
+                                <div style="width: 70%; height: 100%; background: #4a69bd; border-radius: 3px;"></div>
+                            </div>
                         </div>
                         
-                        <div class="skill-card-medium">
-                            <div class="skill-icon">
+                        <div class="skill-item" style="background: white; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;">
+                            <div class="skill-icon" style="font-size: 2.5rem; color: #4a69bd; margin-bottom: 15px;">
                                 <i class="fas fa-network-wired"></i>
                             </div>
-                            <h3>Réseaux</h3>
+                            <h4 style="font-size: 1rem; margin-bottom: 10px;">Réseaux</h4>
+                            <div class="skill-level" style="width: 80%; height: 6px; background: #e9ecef; border-radius: 3px; margin: 0 auto;">
+                                <div style="width: 75%; height: 100%; background: #4a69bd; border-radius: 3px;"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -308,44 +356,69 @@
                             <li>Validation par tests unitaires</li>
                         </ul>
                     </div>
+                    
+                    <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
+                        <div class="project-box" style="background-color: #f8f9fa; border-radius: 10px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                            <h4 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.2rem;">Projet API de paiement</h4>
+                            <p style="margin-bottom: 15px;">Développement d'une interface de programmation pour le traitement des paiements liés au prélèvement à la source.</p>
+                            <div>
+                                <a href="./doc/Documentation PASIFAE PRO.pdf" class="btn" style="padding: 8px 15px; font-size: 0.9rem;" target="_blank">Documentation</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="stage-card">
                     <h3>Compétences développées</h3>
-                    <div class="skills-container-medium">
-                        <div class="skill-card-medium">
-                            <div class="skill-icon">
+                    <div class="skills-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-top: 25px;">
+                        <div class="skill-item" style="background: white; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;">
+                            <div class="skill-icon" style="font-size: 2.5rem; color: #4a69bd; margin-bottom: 15px;">
                                 <i class="fab fa-java"></i>
                             </div>
-                            <h3>Java</h3>
+                            <h4 style="font-size: 1rem; margin-bottom: 10px;">Java</h4>
+                            <div class="skill-level" style="width: 80%; height: 6px; background: #e9ecef; border-radius: 3px; margin: 0 auto;">
+                                <div style="width: 85%; height: 100%; background: #4a69bd; border-radius: 3px;"></div>
+                            </div>
                         </div>
                         
-                        <div class="skill-card-medium">
-                            <div class="skill-icon">
+                        <div class="skill-item" style="background: white; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;">
+                            <div class="skill-icon" style="font-size: 2.5rem; color: #4a69bd; margin-bottom: 15px;">
                                 <i class="fas fa-database"></i>
                             </div>
-                            <h3>SQL</h3>
+                            <h4 style="font-size: 1rem; margin-bottom: 10px;">SQL</h4>
+                            <div class="skill-level" style="width: 80%; height: 6px; background: #e9ecef; border-radius: 3px; margin: 0 auto;">
+                                <div style="width: 80%; height: 100%; background: #4a69bd; border-radius: 3px;"></div>
+                            </div>
                         </div>
                         
-                        <div class="skill-card-medium">
-                            <div class="skill-icon">
+                        <div class="skill-item" style="background: white; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;">
+                            <div class="skill-icon" style="font-size: 2.5rem; color: #4a69bd; margin-bottom: 15px;">
                                 <i class="fas fa-code"></i>
                             </div>
-                            <h3>XML</h3>
+                            <h4 style="font-size: 1rem; margin-bottom: 10px;">XML</h4>
+                            <div class="skill-level" style="width: 80%; height: 6px; background: #e9ecef; border-radius: 3px; margin: 0 auto;">
+                                <div style="width: 75%; height: 100%; background: #4a69bd; border-radius: 3px;"></div>
+                            </div>
                         </div>
                         
-                        <div class="skill-card-medium">
-                            <div class="skill-icon">
+                        <div class="skill-item" style="background: white; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;">
+                            <div class="skill-icon" style="font-size: 2.5rem; color: #4a69bd; margin-bottom: 15px;">
                                 <i class="fas fa-cogs"></i>
                             </div>
-                            <h3>API</h3>
+                            <h4 style="font-size: 1rem; margin-bottom: 10px;">API</h4>
+                            <div class="skill-level" style="width: 80%; height: 6px; background: #e9ecef; border-radius: 3px; margin: 0 auto;">
+                                <div style="width: 90%; height: 100%; background: #4a69bd; border-radius: 3px;"></div>
+                            </div>
                         </div>
                         
-                        <div class="skill-card-medium">
-                            <div class="skill-icon">
+                        <div class="skill-item" style="background: white; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;">
+                            <div class="skill-icon" style="font-size: 2.5rem; color: #4a69bd; margin-bottom: 15px;">
                                 <i class="fas fa-vial"></i>
                             </div>
-                            <h3>Tests unitaires</h3>
+                            <h4 style="font-size: 1rem; margin-bottom: 10px;">Tests unitaires</h4>
+                            <div class="skill-level" style="width: 80%; height: 6px; background: #e9ecef; border-radius: 3px; margin: 0 auto;">
+                                <div style="width: 70%; height: 100%; background: #4a69bd; border-radius: 3px;"></div>
+                            </div>
                         </div>
                     </div>
                 </div>

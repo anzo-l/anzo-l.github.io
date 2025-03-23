@@ -3,318 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille Technologique - Intelligence Artificielle & LLM - Portfolio Anzo Lo</title>
+    <title>Veille Technologique - Portfolio Anzo Lo</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <base href="./">
     <style>
-        /* Styles spécifiques pour la page veille technologique */
+        /* Styles spécifiques pour la page de veille */
         .veille-hero {
-            padding: 150px 0 100px;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('ai-background.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
+            background: linear-gradient(135deg, #2c3e50, #4a69bd);
+            padding: 100px 0;
             text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .veille-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.05)" points="0,100 100,0 100,100"/></svg>');
+            background-size: cover;
         }
         
         .veille-hero h1 {
             font-size: 3rem;
             margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
         }
         
         .veille-hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
+            font-size: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.5s;
         }
         
-        .veille-card {
-            background-color: white;
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature-card {
+            background: white;
             border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            transition: var(--transition);
-        }
-        
-        .veille-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-        
-        .veille-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            padding: 25px;
+            transition: all 0.3s ease;
             position: relative;
-            padding-bottom: 10px;
+            overflow: hidden;
+            z-index: 1;
         }
         
-        .veille-card h3::after {
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .feature-card::before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
+            top: -10px;
+            left: -10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #4a69bd;
+            opacity: 0.1;
+            z-index: -1;
+            transition: all 0.5s ease;
         }
         
-        .focus-topics {
-            margin: 30px 0;
+        .feature-card:hover::before {
+            transform: scale(15);
         }
         
-        .focus-topics ul {
+        .feature-card i {
+            font-size: 2.5rem;
+            color: #4a69bd;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover i {
+            transform: scale(1.2);
+            color: #fff;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s ease;
+        }
+        
+        .feature-card:hover h3 {
+            color: #fff;
+        }
+        
+        .feature-card p {
+            color: #666;
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s ease;
+        }
+        
+        .feature-card:hover p {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .tool-item, .source-item li {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 20px;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .tool-item:hover, .source-item li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .source-item ul {
             list-style: none;
             padding: 0;
         }
         
-        .focus-topics li {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            position: relative;
-            padding-left: 35px;
-            transition: var(--transition);
-        }
-        
-        .focus-topics li:hover {
-            background-color: #edf2f7;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        }
-        
-        .focus-topics li::before {
-            content: '\f0eb';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 10px;
-            top: 14px;
-            color: var(--primary-color);
-        }
-        
-        .news-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .news-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: var(--transition);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-        
-        .news-image {
-            height: 180px;
-            overflow: hidden;
-        }
-        
-        .news-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .news-card:hover .news-image img {
-            transform: scale(1.05);
-        }
-        
-        .news-content {
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .news-content h4 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-            color: var(--dark-color);
-        }
-        
-        .news-date {
-            font-size: 0.9rem;
-            color: #6c757d;
-            margin-bottom: 10px;
-        }
-        
-        .news-content p {
+        .source-item li {
             margin-bottom: 15px;
-            flex-grow: 1;
+            padding: 20px;
         }
         
-        .news-content a {
-            align-self: flex-start;
-            color: var(--primary-color);
-            text-decoration: none;
+        .source-item a {
             font-weight: bold;
-            transition: var(--transition);
+            color: #4a69bd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
         }
         
-        .news-content a:hover {
-            color: var(--secondary-color);
+        .source-item a:hover {
+            color: #2c3e50;
         }
         
-        .rss-section {
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .application-item {
+            background: #fff;
+            border-radius: 12px;
             padding: 30px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .application-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .application-item i {
+            font-size: 3rem;
+            color: #4a69bd;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .application-item:hover i {
+            transform: scale(1.2);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Animation pour les sections */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Style pour la nouvelle section sur les outils de veille */
+        .veille-outils-section {
             margin-top: 30px;
         }
         
-        .rss-tabs {
-            display: flex;
-            overflow-x: auto;
-            gap: 10px;
+        .veille-outils-section h3 {
             margin-bottom: 20px;
-            padding-bottom: 10px;
+            border-left: 4px solid #4a69bd;
+            padding-left: 15px;
         }
         
-        .rss-tab {
-            padding: 10px 20px;
-            background-color: white;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 500;
-            white-space: nowrap;
-            transition: var(--transition);
-            border: 1px solid #dee2e6;
-        }
-        
-        .rss-tab.active {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-        
-        .rss-tab:hover:not(.active) {
-            background-color: #e9ecef;
-        }
-        
-        .rss-content {
-            display: none;
-            max-height: 500px;
-            overflow-y: auto;
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-        }
-        
-        .rss-content.active {
-            display: block;
-        }
-        
-        .rss-item {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            transition: var(--transition);
-        }
-        
-        .rss-item:last-child {
-            border-bottom: none;
-        }
-        
-        .rss-item:hover {
-            background-color: #f8f9fa;
-        }
-        
-        .rss-item a {
-            color: var(--dark-color);
-            text-decoration: none;
-            display: block;
-        }
-        
-        .rss-item a:hover {
-            color: var(--primary-color);
-        }
-        
-        .rss-item-date {
-            font-size: 0.8rem;
-            color: #6c757d;
-            margin-top: 5px;
-        }
-        
-        .tools-container {
+        .outils-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+            margin-bottom: 30px;
         }
         
-        .tool-card {
-            background-color: white;
+        .outil-card {
+            background: #fff;
             border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             padding: 20px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .outil-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .outil-card img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+        
+        .outil-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Style compact pour les boutons des outils */
+        .outil-card .btn {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: #4a69bd;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            width: auto;
+            max-width: 80px;  /* Limite la largeur des boutons */
             text-align: center;
         }
         
-        .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-        
-        .tool-icon {
-            font-size: 40px;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-        
-        .tool-card h4 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-        
-        .tool-card p {
-            font-size: 0.9rem;
-            color: #6c757d;
-            margin-bottom: 15px;
-        }
-        
-        .tool-card a {
-            display: inline-block;
-            padding: 8px 15px;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-        
-        .tool-card a:hover {
-            background-color: var(--secondary-color);
-        }
-        
-        @media (max-width: 768px) {
-            .focus-topics ul,
-            .news-container,
-            .tools-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .rss-tabs {
-                padding-bottom: 10px;
-            }
+        .outil-card .btn:hover {
+            background-color: #2c3e50;
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -325,7 +288,7 @@
                 <h1>Anzo Lo</h1>
                 <p>Développeur Web / Étudiant BTS SIO SLAM</p>
             </div>
-        <nav>
+            <nav>
                 <ul>
                     <li><a href="./index.html#about">À propos</a></li>
                     <li><a href="./index.html#skills">Compétences</a></li>
@@ -333,115 +296,125 @@
                     <li><a href="./stage.html">Stages</a></li>
                     <li><a href="./bts-sio.html">E5|BTS SIO</a></li>
                     <li><a href="./veille-technologique.html">Veille</a></li>
-            </ul>
-        </nav>
-    </div>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <section class="veille-hero">
         <div class="container">
-            <h1>Veille Technologique</h1>
-            <p>Intelligence Artificielle & Grands Modèles de Langage (LLM)</p>
+            <h1>Ma Veille Technologique</h1>
+            <p>Intelligence Artificielle et Modèles de Langage (LLM)</p>
         </div>
     </section>
 
-    <section id="veille-definition">
+    <section id="veille-intro" class="fade-in">
         <div class="container">
             <div class="veille-card">
-                <h3>Qu'est-ce qu'une veille technologique ?</h3>
-                <p>La veille technologique est un processus continu de surveillance et d'analyse des évolutions techniques et scientifiques dans un domaine précis. Elle permet de rester informé des innovations, des tendances émergentes et des avancées significatives afin d'anticiper les changements et d'adapter sa stratégie professionnelle.</p>
-                <p>Cette démarche proactive implique la collecte, l'organisation et l'analyse régulière d'informations pertinentes provenant de diverses sources : articles scientifiques, conférences, publications spécialisées, flux RSS, réseaux sociaux professionnels, etc.</p>
-                <p>Dans le cadre de mon BTS SIO, cette veille technologique est essentielle pour maintenir mes compétences à jour dans un secteur en constante évolution.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="veille-sujet">
-        <div class="container">
-            <div class="veille-card">
-                <h3>Sujet de ma veille : Les Grands Modèles de Langage (LLM)</h3>
-                <p>J'ai choisi de concentrer ma veille technologique sur les Grands Modèles de Langage (Large Language Models ou LLM), une branche de l'intelligence artificielle qui connaît un développement exponentiel depuis quelques années.</p>
-                <p>Les LLM sont des modèles d'IA capables de comprendre et de générer du langage humain avec un niveau de cohérence et de pertinence sans précédent. Ces technologies transforment rapidement de nombreux secteurs, des services clients à la création de contenu, en passant par la programmation assistée.</p>
+                <h2>Qu'est-ce que la veille technologique ?</h2>
+                <p>La veille technologique est un processus systématique qui consiste à collecter, analyser et diffuser des informations sur les évolutions techniques, les innovations et les tendances émergentes dans un secteur spécifique. Cette démarche permet de rester informé des dernières avancées, d'anticiper les changements et d'adapter sa stratégie en conséquence.</p>
                 
-                <div class="focus-topics">
-                    <h4>Suivi en temps réel des évolutions récentes avec une attention particulière sur :</h4>
-                    <ul>
-                        <li>Les avancées techniques des modèles de fondation (GPT-4, Claude, Gemini, LLaMA, etc.)</li>
-                        <li>Les applications pratiques des LLM dans le développement logiciel</li>
-                        <li>L'émergence des modèles multimodaux (texte, image, audio, vidéo)</li>
-                        <li>Les enjeux éthiques et réglementaires liés à ces technologies</li>
-                        <li>Les techniques d'optimisation et de déploiement des LLM</li>
-                        <li>Les nouveaux paradigmes de programmation assistée par IA</li>
-                        <li>Les entreprises innovantes dans le secteur des LLM</li>
-                        <li>L'accessibilité et la démocratisation des modèles open source</li>
-                </ul>
+                <p>Pour un professionnel de l'informatique, la veille technologique est essentielle pour maintenir ses compétences à jour, découvrir de nouveaux outils et méthodes, et prendre des décisions éclairées dans un environnement en constante évolution.</p>
+                
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <i class="fas fa-search"></i>
+                        <h3>Anticiper</h3>
+                        <p>Identifier les tendances émergentes et se préparer aux évolutions du secteur.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Innover</h3>
+                        <p>S'inspirer des dernières avancées pour créer des solutions originales.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Se former</h3>
+                        <p>Maintenir ses compétences à jour dans un domaine en constante évolution.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="veille-outils">
+    <section id="sujet-veille" class="fade-in">
         <div class="container">
             <div class="veille-card">
-                <h3>Mes outils de veille</h3>
-                <p>Pour effectuer ma veille technologique sur les LLM, j'utilise différents outils et sources d'information qui me permettent de rester à jour en temps réel :</p>
+                <h2>Mon sujet de veille : Les Modèles de Langage (LLM)</h2>
+                <p>Les Large Language Models (LLM) représentent une avancée majeure dans le domaine de l'intelligence artificielle. Ces modèles, comme GPT-4, Claude, ou LLaMA, sont capables de comprendre et générer du langage naturel avec un niveau de pertinence et de précision sans précédent, transformant ainsi de nombreux secteurs dont le développement informatique.</p>
                 
-                <div class="tools-container">
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="fas fa-rss"></i>
+                <h3>Suivi en temps réel des dernières avancées, avec une attention particulière sur :</h3>
+                
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>Nouveaux modèles</h3>
+                        <p>Évolutions des capacités et performances des LLM existants et émergents.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Applications web</h3>
+                        <p>Intégration des LLM dans le développement d'applications web modernes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Éthique et sécurité</h3>
+                        <p>Bonnes pratiques et considérations éthiques dans l'utilisation des LLM.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h3>Optimisation</h3>
+                        <p>Techniques pour améliorer les performances et l'efficacité des LLM.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="outils-veille" class="fade-in">
+        <div class="container">
+            <div class="veille-card">
+                <h2>Les outils de ma veille technologique</h2>
+                
+                <div class="veille-outils-section">
+                    <h3>Mes outils principaux</h3>
+                    <div class="outils-cards">
+                        <div class="outil-card">
+                            <i class="fab fa-github" style="font-size: 2.5rem; color: #4a69bd; margin-bottom: 15px;"></i>
+                            <h4>GitHub</h4>
+                            <p>Suivi des projets et repositories liés aux modèles de langage open source.</p>
+                            <a href="https://github.com/topics/large-language-models" target="_blank" class="btn">GitHub</a>
                         </div>
-                        <h4>Feedly</h4>
-                        <p>Agrégateur de flux RSS pour centraliser l'information</p>
-                        <a href="https://feedly.com" target="_blank">Accéder</a>
+                        
+                        <div class="outil-card">
+                            <i class="fab fa-reddit-alien" style="font-size: 2.5rem; color: #4a69bd; margin-bottom: 15px;"></i>
+                            <h4>Reddit</h4>
+                            <p>Forums de discussion où les chercheurs et développeurs partagent avancées et résultats.</p>
+                            <a href="https://www.reddit.com/r/MachineLearning/" target="_blank" class="btn">Reddit</a>
+                        </div>
+                        
+                        <div class="outil-card">
+                            <i class="fas fa-brain" style="font-size: 2.5rem; color: #4a69bd; margin-bottom: 15px;"></i>
+                            <h4>Anthropic</h4>
+                            <p>Recherches et publications de pointe dans le domaine des LLM et de l'IA constitutionnelle.</p>
+                            <a href="https://www.anthropic.com/research" target="_blank" class="btn">Anthropic</a>
+                        </div>
                     </div>
                     
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="fab fa-twitter"></i>
+                    <h3><i class="fas fa-rss"></i> Flux RSS et Agrégateurs (informations actualisées automatiquement)</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <i class="fas fa-bell"></i>
+                            <h4>Google Alertes</h4>
+                            <p>Configuration d'alertes personnalisées sur les termes clés : "LLM", "GPT-4", "Claude AI", "Modèles de langage", etc.</p>
+                            <a href="https://www.google.fr/alerts" target="_blank" class="btn btn-sm">Visiter</a>
                         </div>
-                        <h4>Twitter/X</h4>
-                        <p>Suivi des experts et chercheurs en IA</p>
-                        <a href="https://twitter.com" target="_blank">Accéder</a>
-                    </div>
-                    
-                    <div class="tool-card">
-                        <div class="tool-icon">
+                        
+                        <div class="tool-item">
                             <i class="fas fa-newspaper"></i>
-                        </div>
-                        <h4>Google Alerts</h4>
-                        <p>Alertes personnalisées sur les mots-clés pertinents</p>
-                        <a href="https://www.google.fr/alerts" target="_blank">Accéder</a>
-                    </div>
-
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <h4>GitHub</h4>
-                        <p>Suivi des dépôts open source liés aux LLM</p>
-                        <a href="https://github.com/topics/large-language-models" target="_blank">Accéder</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="veille-actualites">
-        <div class="container">
-            <div class="veille-card">
-                <h3>Dernières actualités</h3>
-                <p>Voici les dernières informations importantes concernant les Grands Modèles de Langage :</p>
-                
-                <div class="news-container">
-                    <div class="news-card">
-                        <div class="news-image">
-                            <img src="https://via.placeholder.com/400x200?text=LLM+News" alt="Actualité LLM">
-                        </div>
-                        <div class="news-content">
-                            <span class="news-date">Mise à jour automatique</span>
-                            <h4>Les dernières avancées des LLM</h4>
-                            <p>Les contenus de cette section sont mis à jour automatiquement via les flux RSS.</p>
+                            <h4>Feedly</h4>
+                            <p>Agrégateur centralisant les publications des principaux blogs et sites spécialisés en IA et LLM.</p>
+                            <a href="https://feedly.com" target="_blank" class="btn btn-sm">Visiter</a>
                         </div>
                     </div>
                 </div>
@@ -449,94 +422,118 @@
         </div>
     </section>
 
-    <section id="veille-flux">
+    <section id="sources-principales" class="fade-in">
         <div class="container">
             <div class="veille-card">
-                <h3>Flux d'actualités en direct</h3>
-                <p>Cette section se met à jour automatiquement grâce aux flux RSS des meilleures sources d'information sur l'IA et les LLM :</p>
-                
-                <div class="rss-section">
-                    <div class="rss-tabs">
-                        <div class="rss-tab active" data-target="rss-ai-news">AI News</div>
-                        <div class="rss-tab" data-target="rss-techcrunch">TechCrunch IA</div>
-                        <div class="rss-tab" data-target="rss-mit">MIT Technology</div>
-                        <div class="rss-tab" data-target="rss-huggingface">Hugging Face</div>
-                        <div class="rss-tab" data-target="rss-papers">arXiv Papers</div>
+                <h2>Sources principales</h2>
+                <div class="sources-list">
+                    <div class="source-item">
+                        <h3>Articles et publications de référence</h3>
+                        <ul>
+                            <li>
+                                <a href="https://arxiv.org/abs/2303.08774" target="_blank">
+                                    <i class="fas fa-file-alt"></i> GPT-4 Technical Report (OpenAI)
+                                </a>
+                                <p>Analyse détaillée des capacités et limitations du modèle GPT-4.</p>
+                            </li>
+                            <li>
+                                <a href="https://www.anthropic.com/research/constitutional-ai" target="_blank">
+                                    <i class="fas fa-file-alt"></i> Constitutional AI: Harmlessness from AI Feedback (Anthropic)
+                                </a>
+                                <p>Recherche sur les méthodes d'alignement des LLM avec les valeurs humaines.</p>
+                            </li>
+                            <li>
+                                <a href="https://ai.facebook.com/blog/large-language-model-llama-meta-ai/" target="_blank">
+                                    <i class="fas fa-file-alt"></i> Introducing LLaMA (Meta AI)
+                                </a>
+                                <p>Présentation du modèle open-source LLaMA et de ses applications potentielles.</p>
+                            </li>
+                            <li>
+                                <a href="https://huggingface.co/blog/llm-course" target="_blank">
+                                    <i class="fas fa-file-alt"></i> NLP with LLMs (Hugging Face)
+                                </a>
+                                <p>Cours complet sur l'utilisation pratique des LLM dans les projets.</p>
+                            </li>
+                            <li>
+                                <a href="https://www.deeplearning.ai/the-batch/" target="_blank">
+                                    <i class="fas fa-file-alt"></i> The Batch (DeepLearning.AI)
+                                </a>
+                                <p>Newsletter hebdomadaire couvrant les dernières avancées en IA et LLM.</p>
+                            </li>
+                        </ul>
                     </div>
-                    
-                    <div id="rss-ai-news" class="rss-content active">
-                        <div class="rss-loader">
-                            <p>Chargement du flux RSS...</p>
-                        </div>
-                        <div class="rss-items"></div>
-                    </div>
-                    
-                    <div id="rss-techcrunch" class="rss-content">
-                        <div class="rss-loader">
-                            <p>Chargement du flux RSS...</p>
-                        </div>
-                        <div class="rss-items"></div>
-            </div>
-                    
-                    <div id="rss-mit" class="rss-content">
-                        <div class="rss-loader">
-                            <p>Chargement du flux RSS...</p>
-                        </div>
-                        <div class="rss-items"></div>
-            </div>
-                    
-                    <div id="rss-huggingface" class="rss-content">
-                        <div class="rss-loader">
-                            <p>Chargement du flux RSS...</p>
-                        </div>
-                        <div class="rss-items"></div>
-            </div>
-                    
-                    <div id="rss-papers" class="rss-content">
-                        <div class="rss-loader">
-                            <p>Chargement du flux RSS...</p>
-                        </div>
-                        <div class="rss-items"></div>
-                    </div>
-                </div>
-            </div>
-            </div>
-    </section>
-
-    <section id="veille-sources">
-        <div class="container">
-            <div class="veille-card">
-                <h3>Sources et ressources</h3>
-                <p>Voici les principales sources que j'utilise pour ma veille technologique sur les LLM :</p>
-                
-                <div class="focus-topics">
-                    <ul>
-                        <li><a href="https://huggingface.co/blog" target="_blank">Blog Hugging Face</a> - Actualités et tutoriels sur les modèles de langage</li>
-                        <li><a href="https://openai.com/blog" target="_blank">Blog OpenAI</a> - Publications officielles sur les avancées de GPT</li>
-                        <li><a href="https://ai.googleblog.com/" target="_blank">Google AI Blog</a> - Recherches et innovations de Google en IA</li>
-                        <li><a href="https://www.anthropic.com/research" target="_blank">Anthropic Research</a> - Publications sur Claude et l'IA constitutionnelle</li>
-                        <li><a href="https://arxiv.org/list/cs.CL/recent" target="_blank">arXiv</a> - Articles scientifiques récents sur le traitement du langage naturel</li>
-                        <li><a href="https://paperswithcode.com/area/natural-language-processing" target="_blank">Papers with Code</a> - Implémentations de recherches en NLP</li>
-                        <li><a href="https://www.reddit.com/r/MachineLearning/" target="_blank">Reddit r/MachineLearning</a> - Discussions communautaires sur l'IA</li>
-                        <li><a href="https://medium.com/tag/large-language-models" target="_blank">Medium</a> - Articles de praticiens sur les LLM</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
+
+    <section id="applications-pratiques" class="fade-in">
+        <div class="container">
+            <div class="veille-card">
+                <h2>Applications pratiques dans mon travail</h2>
+                <p>Ma veille sur les LLM m'a permis d'améliorer significativement mon processus de développement :</p>
+                <div class="applications-grid">
+                    <div class="application-item">
+                        <i class="fas fa-code"></i>
+                        <h3>Assistance au développement</h3>
+                        <p>Utilisation des LLM pour générer du code, déboguer et optimiser mes applications.</p>
+                    </div>
+                    <div class="application-item">
+                        <i class="fas fa-brain"></i>
+                        <h3>Intelligence conversationnelle</h3>
+                        <p>Intégration d'interfaces conversationnelles dans mes projets web.</p>
+                    </div>
+                    <div class="application-item">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Automatisation documentaire</h3>
+                        <p>Génération et maintenance de documentation technique.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <footer>
         <div class="container">
             <div class="social-links">
                 <a href="#"><i class="fab fa-linkedin"></i></a>
                 <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
-            <p>&copy; 2023 Anzo Lo. Tous droits réservés.</p>
+            <p>&copy; 2025 Anzo Lo. Tous droits réservés.</p>
         </div>
     </footer>
 
     <script src="./script.js"></script>
+    <script>
+        // Script pour l'animation des sections au scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top < windowHeight * 0.85) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+            
+            // Vérifier au chargement initial
+            checkFade();
+            
+            // Vérifier lors du défilement
+            window.addEventListener('scroll', checkFade);
+            
+            // Animation des cartes
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
 </body>
 </html>
 
