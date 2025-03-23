@@ -418,6 +418,9 @@ footer {
 .btn-container {
     margin-top: 25px;
     text-align: center;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 /* Responsive Design */
